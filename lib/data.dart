@@ -32,7 +32,7 @@ const drawerItems = [
   },
   {
     "icon": "res/icons/nav6.png",
-    "name": "Donate to NGO"
+    "name": "Contact"
   },
   {
     "icon": "res/icons/nav7.png",

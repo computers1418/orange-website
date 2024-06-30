@@ -2,7 +2,9 @@ import 'dart:math';
 
 import 'package:dentist_india_plus/data.dart';
 import 'package:dentist_india_plus/drawer/drawer_list_item.dart';
+import 'package:dentist_india_plus/extensions%20copy/context_exten.dart';
 import 'package:dentist_india_plus/extensions/num_exten.dart';
+import 'package:dentist_india_plus/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 import '../responsive/size_responsive.dart';
@@ -107,140 +109,147 @@ class _HomeDrawerState extends State<HomeDrawer> with TickerProviderStateMixin{
 
                 ...drawerItems.map((e){
                   if(drawerItems.indexOf(e)==1){
-                    return Container(
-                      margin: const EdgeInsets.fromLTRB(12, 0, 12, 8),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFFF8412),
-                        borderRadius: BorderRadius.circular(24)
-                      ),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(14, 8, 8, 0),
-                            child: Row(
-                              children: [
-                                ImageIcon(AssetImage('${e["icon"]}'), size: 18, color: Colors.white,),
-                                8.hgap(),
-                                Text('${e["name"]}', style: TextStyle(
-                                  fontFamily: "Kumbhsans",
-                                  color: Colors.white,
-                                  fontSize: TextResponsive.getResponsiveFontSize(context, 13),
-                                  fontWeight: FontWeight.w800
-                                ))
-                              ],  
+                    return InkWell(
+                      onTap: (){
+                        if(e["name"]=="Home"){
+                          context.goto(Routes.about);
+                        }
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.fromLTRB(12, 0, 12, 8),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFFF8412),
+                          borderRadius: BorderRadius.circular(24)
+                        ),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(14, 8, 8, 0),
+                              child: Row(
+                                children: [
+                                  ImageIcon(AssetImage('${e["icon"]}'), size: 18, color: Colors.white,),
+                                  8.hgap(),
+                                  Text('${e["name"]}', style: TextStyle(
+                                    fontFamily: "Kumbhsans",
+                                    color: Colors.white,
+                                    fontSize: TextResponsive.getResponsiveFontSize(context, 13),
+                                    fontWeight: FontWeight.w800
+                                  ))
+                                ],  
+                              ),
                             ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.all(4),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20)
-                            ),
-                            padding: const EdgeInsets.fromLTRB(12, 6, 6, 6),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                 Text('21 Feb @ 11:00 am', style: TextStyle(
-                                  fontFamily: "Kumbhsans",
-                                  color: const Color(0xFF2B275A),
-                                  fontSize: TextResponsive.getResponsiveFontSize(context, 15),
-                                  fontWeight: FontWeight.w800
-                                )),
-                                  Text('Dental Braces', style: TextStyle(
-                                  fontFamily: "Kumbhsans",
-                                  color: const Color(0xFFFF8412),
-                                  fontSize: TextResponsive.getResponsiveFontSize(context, 12),
-                                  fontWeight: FontWeight.w500
-                                )),
-                                const SizedBox(height: 6,),
-                                 Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const Icon(Icons.room, size: 14, color: Color(0xFFFF8412),),
-                                    const SizedBox(width: 4,),
-                                     Expanded(
-                                      child: Text('12/2, Mathura Road, Sector 37, Faridabad - Delhi', style: TextStyle(
-                                        fontFamily: "Kumbhsans",
-                                        color: const Color(0xFF2B275A),
-                                        fontSize: TextResponsive.getResponsiveFontSize(context, 9),
-                                        fontWeight: FontWeight.w600
-                                      )),
-                                    ),
-                                    Stack(
-                                      alignment: Alignment.centerRight,
-                                      children: [
-                                         Padding(
-                                          padding: const EdgeInsets.only(right:  18.0),
-                                          child: CircleAvatar(
-                                              radius: SizeResponsive.get(context, 16),
-                                              backgroundColor: const Color(0xFF2B275A),
-                                              child: Icon(Icons.arrow_forward, color: Colors.white, size: SizeResponsive.get(context, 18),),
-                                            ),
-                                        ),
-                                          Transform.rotate(
-                                            angle: -90*(pi/180),
-                                            child: Text('MAP', style: TextStyle(
-                                                fontFamily: "Kumbhsans",
-                                                color: const Color(0xFF2B275A),
-                                                fontSize: TextResponsive.getResponsiveFontSize(context, 9),
-                                                fontWeight: FontWeight.w800
-                                              )),
-                                          )
-                                      ],
-                                    )
-                                  ],
-                                ),
-                                const SizedBox(height: 6,),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                     Expanded(
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Text('Dr. Diana Cruz', style: TextStyle(
-                                            fontFamily: "Kumbhsans",
-                                            color: const Color(0xFF2B275A),
-                                            fontSize: TextResponsive.getResponsiveFontSize(context, 14),
-                                            fontWeight: FontWeight.w800
-                                          )),
-                                          Text('BDS, MDS', style: TextStyle(
-                                            fontFamily: "Kumbhsans",
-                                            color: const Color(0xFF2B275A),
-                                            fontSize: TextResponsive.getResponsiveFontSize(context, 9),
-                                            fontWeight: FontWeight.w500
-                                          )),
-                                        ],
+                            Container(
+                              margin: const EdgeInsets.all(4),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20)
+                              ),
+                              padding: const EdgeInsets.fromLTRB(12, 6, 6, 6),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                   Text('21 Feb @ 11:00 am', style: TextStyle(
+                                    fontFamily: "Kumbhsans",
+                                    color: const Color(0xFF2B275A),
+                                    fontSize: TextResponsive.getResponsiveFontSize(context, 15),
+                                    fontWeight: FontWeight.w800
+                                  )),
+                                    Text('Dental Braces', style: TextStyle(
+                                    fontFamily: "Kumbhsans",
+                                    color: const Color(0xFFFF8412),
+                                    fontSize: TextResponsive.getResponsiveFontSize(context, 12),
+                                    fontWeight: FontWeight.w500
+                                  )),
+                                  const SizedBox(height: 6,),
+                                   Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      const Icon(Icons.room, size: 14, color: Color(0xFFFF8412),),
+                                      const SizedBox(width: 4,),
+                                       Expanded(
+                                        child: Text('12/2, Mathura Road, Sector 37, Faridabad - Delhi', style: TextStyle(
+                                          fontFamily: "Kumbhsans",
+                                          color: const Color(0xFF2B275A),
+                                          fontSize: TextResponsive.getResponsiveFontSize(context, 9),
+                                          fontWeight: FontWeight.w600
+                                        )),
                                       ),
-                                    ),
-                                    Stack(
-                                      alignment: Alignment.centerRight,
-                                      children: [
-                                         Padding(
-                                          padding: const EdgeInsets.only(right:  18.0),
-                                          child: CircleAvatar(
-                                              radius: SizeResponsive.get(context, 16),
-                                              backgroundColor: const Color(0xFF2B275A),
-                                              child: Icon(Icons.phone, color: Colors.white, size: SizeResponsive.get(context, 18),),
-                                            ),
+                                      Stack(
+                                        alignment: Alignment.centerRight,
+                                        children: [
+                                           Padding(
+                                            padding: const EdgeInsets.only(right:  18.0),
+                                            child: CircleAvatar(
+                                                radius: SizeResponsive.get(context, 16),
+                                                backgroundColor: const Color(0xFF2B275A),
+                                                child: Icon(Icons.arrow_forward, color: Colors.white, size: SizeResponsive.get(context, 18),),
+                                              ),
+                                          ),
+                                            Transform.rotate(
+                                              angle: -90*(pi/180),
+                                              child: Text('MAP', style: TextStyle(
+                                                  fontFamily: "Kumbhsans",
+                                                  color: const Color(0xFF2B275A),
+                                                  fontSize: TextResponsive.getResponsiveFontSize(context, 9),
+                                                  fontWeight: FontWeight.w800
+                                                )),
+                                            )
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                  const SizedBox(height: 6,),
+                                  Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                       Expanded(
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text('Dr. Diana Cruz', style: TextStyle(
+                                              fontFamily: "Kumbhsans",
+                                              color: const Color(0xFF2B275A),
+                                              fontSize: TextResponsive.getResponsiveFontSize(context, 14),
+                                              fontWeight: FontWeight.w800
+                                            )),
+                                            Text('BDS, MDS', style: TextStyle(
+                                              fontFamily: "Kumbhsans",
+                                              color: const Color(0xFF2B275A),
+                                              fontSize: TextResponsive.getResponsiveFontSize(context, 9),
+                                              fontWeight: FontWeight.w500
+                                            )),
+                                          ],
                                         ),
-                                          Transform.rotate(
-                                            angle: -90*(pi/180),
-                                            child: Text('CALL', style: TextStyle(
-                                                fontFamily: "Kumbhsans",
-                                                color: const Color(0xFF2B275A),
-                                                fontSize: TextResponsive.getResponsiveFontSize(context, 9),
-                                                fontWeight: FontWeight.w800
-                                              )),
-                                          )
-                                      ],
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
-                          )
-                        ],
+                                      ),
+                                      Stack(
+                                        alignment: Alignment.centerRight,
+                                        children: [
+                                           Padding(
+                                            padding: const EdgeInsets.only(right:  18.0),
+                                            child: CircleAvatar(
+                                                radius: SizeResponsive.get(context, 16),
+                                                backgroundColor: const Color(0xFF2B275A),
+                                                child: Icon(Icons.phone, color: Colors.white, size: SizeResponsive.get(context, 18),),
+                                              ),
+                                          ),
+                                            Transform.rotate(
+                                              angle: -90*(pi/180),
+                                              child: Text('CALL', style: TextStyle(
+                                                  fontFamily: "Kumbhsans",
+                                                  color: const Color(0xFF2B275A),
+                                                  fontSize: TextResponsive.getResponsiveFontSize(context, 9),
+                                                  fontWeight: FontWeight.w800
+                                                )),
+                                            )
+                                        ],
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     );
                   }

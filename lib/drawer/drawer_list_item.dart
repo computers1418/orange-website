@@ -1,8 +1,10 @@
+import 'package:dentist_india_plus/extensions%20copy/context_exten.dart';
 import 'package:dentist_india_plus/extensions/num_exten.dart';
 import 'package:dentist_india_plus/responsive/size_responsive.dart';
 import 'package:flutter/material.dart';
 
 import '../responsive/text_responsive.dart';
+import '../routes/app_routes.dart';
 
 class DrawerListItem extends StatelessWidget {
   final String icon;
@@ -14,7 +16,16 @@ class DrawerListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap:  ()=>onClick(selected==name ? '' : name ),
+      onTap:  (){
+        onClick(selected==name ? '' : name );
+        if(name=="Home"){
+          context.goto(Routes.about);
+        }else if(name=="Privacy, Terms & Conditions"){
+          context.goto(Routes.terms);
+        }else if(name=="Contact"){
+          context.goto(Routes.contact);
+        }
+      },
       child: Container(
         margin: EdgeInsets.fromLTRB(12, 0, 12, SizeResponsive.getHeightverse(context, 8)),
         decoration: BoxDecoration(
