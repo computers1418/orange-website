@@ -53,6 +53,17 @@ class BottomsheetCity extends StatelessWidget {
                         alignment: Alignment.bottomCenter,
                         child: CitySlider(
                           onSelect: onSelect,
+                          selectedCity: cities[notifier.value],
+                          onForward: (){
+                            if(notifier.value<cities.length-1){
+                              notifier.value= (notifier.value+1);
+                            }
+                          },
+                          onBack: (){
+                            if(notifier.value>0){
+                              notifier.value= (notifier.value -1);
+                            }
+                          },
                         ))
                     ],
                   ),

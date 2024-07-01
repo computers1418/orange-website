@@ -1,12 +1,14 @@
 import 'package:dentist_india_plus/responsive/text_responsive.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../responsive/size_responsive.dart';
 
 class CitySlider extends StatelessWidget {
   final VoidCallback onSelect;
-  const CitySlider({super.key, required this.onSelect});
+  final String selectedCity;
+  final VoidCallback onForward;
+  final VoidCallback onBack;
+  const CitySlider({super.key, required this.onSelect, required this.selectedCity, required this.onForward, required this.onBack});
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +69,7 @@ class CitySlider extends StatelessWidget {
                   children: [
                      Padding(
                       padding: const EdgeInsets.only(left: 12),
-                      child: Text("Bengaluru", style: TextStyle(
+                      child: Text(selectedCity, style: TextStyle(
                             fontFamily: "Kumbhsans",
                             color: const Color(0xFF2B275A),
                             fontSize: TextResponsive.getResponsiveFontSize(context, 13),
@@ -100,43 +102,29 @@ class CitySlider extends StatelessWidget {
       
           Align(
             alignment: Alignment.centerLeft,
-            child: Container(
-              width: SizeResponsive.get(context, 40), height: SizeResponsive.get(context, 40),
-              margin: const EdgeInsets.only(left: 6),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(50),
-                boxShadow: const [
-                  BoxShadow(
-                    offset: Offset(-5, 5),
-                    blurRadius: 30,
-                    color: Color(0x40000000)
-                  )
-                ]
+            child: GestureDetector(
+              onTap: ()=>onBack(),
+              child: Container(
+                margin: const EdgeInsets.only(left: 0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: Image.asset("res/images/circle_left.png",  width: SizeResponsive.get(context, 60), height: SizeResponsive.get(context, 60)),
               ),
-              padding: const EdgeInsets.all(10),
-              child: const ImageIcon(AssetImage("res/icons/back.png"), color: Color(0xFF2B275A)),
             ),
           ),
       
           Align(
             alignment: Alignment.centerRight,
-            child: Container(
-              width: SizeResponsive.get(context, 40), height: SizeResponsive.get(context, 40),
-              margin: const EdgeInsets.only(right: 6),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(50),
-                boxShadow: const [
-                  BoxShadow(
-                    offset: Offset(-5, 5),
-                    blurRadius: 30,
-                    color: Color(0x40000000)
-                  )
-                ]
+            child: GestureDetector(
+              onTap: ()=>onForward(),
+              child: Container(
+                margin: const EdgeInsets.only(right: 0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: Image.asset("res/images/circle_right.png",  width: SizeResponsive.get(context, 60), height: SizeResponsive.get(context, 60)),
               ),
-              padding: const EdgeInsets.all(10),
-              child: const ImageIcon(AssetImage("res/icons/forward.png"), color: Color(0xFF2B275A)),
             ),
           )
         ],

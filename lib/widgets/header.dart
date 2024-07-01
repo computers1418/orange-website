@@ -13,24 +13,28 @@ class Header extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Stack(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 20),
-                child: Text("Confidence", style: TextStyle(
-                  fontFamily: "BillSmith",
-                  fontWeight: FontWeight.w800,
-                  fontSize: TextResponsive.getResponsiveFontSize(context, 26),
-                  color: const Color(0xFFFF8412 )
-                )),
-              ),
-              const Positioned(
-                right: 0,
-                top: 0,
-                child: ImageIcon(AssetImage("res/icons/blink.png"), size: 16, color: Color(0xFFFF9636),))
-            ],
-          ),
-          const SizedBox(height: 10,),
+          SizedBox(
+            height: TextResponsive.getResponsiveFontSize(context, 70),
+            child: Image.asset("res/images/title_frame.png")),
+          // Stack(
+          //   children: [
+
+          //     // Padding(
+          //     //   padding: const EdgeInsets.only(right: 20),
+          //     //   child: Text("Confidence", style: TextStyle(
+          //     //     fontFamily: "BillSmith",
+          //     //     fontWeight: FontWeight.w800,
+          //     //     fontSize: TextResponsive.getResponsiveFontSize(context, 26),
+          //     //     color: const Color(0xFFFF8412 )
+          //     //   )),
+          //     // ),
+          //     // const Positioned(
+          //     //   right: 0,
+          //     //   top: 0,
+          //     //   child: ImageIcon(AssetImage("res/icons/blink.png"), size: 16, color: Color(0xFFFF9636),))
+          //   ],
+          // ),
+          // const SizedBox(height: 10,),
           Text("STARTS WITH A HEALTHY\nSMILE", style: TextStyle(
             fontFamily: "Kumbhsans",
             fontWeight: FontWeight.w800,

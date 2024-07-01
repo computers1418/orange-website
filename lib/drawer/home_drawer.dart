@@ -6,6 +6,7 @@ import 'package:dentist_india_plus/extensions%20copy/context_exten.dart';
 import 'package:dentist_india_plus/extensions/num_exten.dart';
 import 'package:dentist_india_plus/routes/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../responsive/size_responsive.dart';
 import '../responsive/text_responsive.dart';
@@ -158,7 +159,7 @@ class _HomeDrawerState extends State<HomeDrawer> with TickerProviderStateMixin{
                                     fontFamily: "Kumbhsans",
                                     color: const Color(0xFFFF8412),
                                     fontSize: TextResponsive.getResponsiveFontSize(context, 12),
-                                    fontWeight: FontWeight.w500
+                                    fontWeight: FontWeight.w900
                                   )),
                                   const SizedBox(height: 6,),
                                    Row(
@@ -299,58 +300,64 @@ class _HomeDrawerState extends State<HomeDrawer> with TickerProviderStateMixin{
               ],
             ),
           ),
-          Stack(
-            children: [
-              Positioned(
-                bottom: 0,
-                left: 0,
-                right: 0,
-                child: Image.asset("res/images/bottom_wave.png", height: SizeResponsive.getHeightverse(context, 50),fit: BoxFit.fill,)),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
-                child: Row(
-                  children: [
-                    Image.asset("res/images/mobile_app.png", width: SizeResponsive.getHeightverse(context, 50), ),
-                    const SizedBox(width: 8,),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                           Text("Download App Now!", style: TextStyle(
-                              fontFamily: "KumbhsansSemiBold",
-                              color: const Color(0xFF2B275A),
-                              fontSize: TextResponsive.getResponsiveFontSize(context, 14),
-                              fontWeight: FontWeight.w800
-                            )),
-                             SizedBox(
-                              width: 200,
-                              child: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie.", 
-                              maxLines: 4,
-                              style: TextStyle(
-                                fontFamily: "Kumbhsans",
+          SizedBox(
+            height: SizeResponsive.getHeightverse(context, 150),
+            child: Stack(
+              children: [
+                Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: Image.asset("res/images/bottom_wave.png", height: SizeResponsive.getHeightverse(context, 85),
+                    fit: BoxFit.fill
+                    )
+                  ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+                  child: Row(
+                    children: [
+                      Image.asset("res/images/mobile_app.png", width: SizeResponsive.getHeightverse(context, 80), ),
+                      const SizedBox(width: 8,),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                             Text("Download App Now!", style: TextStyle(
+                                fontFamily: "KumbhsansSemiBold",
                                 color: const Color(0xFF2B275A),
-                                fontSize: TextResponsive.getResponsiveFontSize(context, 8),
-                                fontWeight: FontWeight.w400
+                                fontSize: TextResponsive.getResponsiveFontSize(context, 14),
+                                fontWeight: FontWeight.w800
                               )),
+                               SizedBox(
+                                width: 200,
+                                child: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie.", 
+                                maxLines: 4,
+                                style: TextStyle(
+                                  fontFamily: "Kumbhsans",
+                                  color: const Color(0xFF2B275A),
+                                  fontSize: TextResponsive.getResponsiveFontSize(context, 8),
+                                  fontWeight: FontWeight.w400
+                                )),
+                              ),
+                             SizedBox(height: SizeResponsive.get(context, 18),),
+                            Row(
+                              children: [
+                        
+                                Image.asset("res/images/playstore.png", width: SizeResponsive.get(context, 60), height: SizeResponsive.get(context, 26)),
+                                const SizedBox(width: 10,),
+                                Image.asset("res/images/appstore.png", width: SizeResponsive.get(context, 60), height: SizeResponsive.get(context, 26))
+                        
+                              ],
                             ),
-                           SizedBox(height: SizeResponsive.get(context, 14),),
-                          Row(
-                            children: [
-                      
-                              Image.asset("res/images/playstore.png", width: SizeResponsive.get(context, 60), height: SizeResponsive.get(context, 26)),
-                              const SizedBox(width: 10,),
-                              Image.asset("res/images/appstore.png", width: SizeResponsive.get(context, 60), height: SizeResponsive.get(context, 26))
-                      
-                            ],
-                          ),
-                          const SizedBox(height: 8,)
-                        ],
+                            const SizedBox(height: 8,)
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              )
-            ],
+                    ],
+                  ),
+                )
+              ],
+            ),
           )
         ],
       ),

@@ -62,7 +62,7 @@ class DoctorItem extends StatelessWidget {
                             fontFamily: "Kumbhsans",
                             color: const Color(0xFFFFFFFF),
                             fontSize: TextResponsive.getResponsiveFontSize(context, 9),
-                            fontWeight: FontWeight.w500
+                            fontWeight: FontWeight.w800
                           )),
                           const SizedBox(width: 2,),
                           const Icon(Icons.arrow_forward, color: Colors.white, size: 12,)
@@ -77,7 +77,7 @@ class DoctorItem extends StatelessWidget {
             CircleAvatar(
               radius: SizeResponsive.get(context, 15),
               backgroundColor: const Color(0xFFFF8412),
-              child: ImageIcon(const AssetImage("res/icons/phone.png"), size: SizeResponsive.get(context, 18), color: const Color(0xFFFFFFFF)),
+              child: Image.asset("res/images/call_icon.png", width: 30, height: 30,),
             ),
             8.hgap(),
             GestureDetector(
