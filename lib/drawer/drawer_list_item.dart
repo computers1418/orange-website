@@ -19,7 +19,9 @@ class DrawerListItem extends StatelessWidget {
       onTap:  (){
         onClick(selected==name ? '' : name );
         if(path!=null){
-          context.goto(path!);
+          Future.delayed(const Duration(milliseconds: 800), (){
+            context.goto(path!);
+          });
         }
       },
       child: Container(
@@ -31,7 +33,7 @@ class DrawerListItem extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         child: Row(
           children: [
-            ImageIcon(AssetImage(icon), size: TextResponsive.getResponsiveFontSize(context, 18), color: selected == name ? const Color(0xFFFF8412): const Color(0xFF5D5A81),),
+            ImageIcon(AssetImage(icon), size: TextResponsive.getResponsiveFontSize(context, 18), color: selected == name ? Colors.white: const Color(0xFF5D5A81),),
             8.hgap(),
             Text(name, style: TextStyle(
               fontFamily: "Kumbhsans",

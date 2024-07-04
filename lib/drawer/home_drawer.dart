@@ -259,7 +259,7 @@ class _HomeDrawerState extends State<HomeDrawer> with TickerProviderStateMixin{
                         selected: val,
                         onClick: (name){
                           isSelected.value = name;
-                          if(name!=''){
+                          if(name!='' && name=="Previous Appointments"){
                             controller2.forward();
                           }else{
                             controller2.reverse();

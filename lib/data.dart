@@ -39,9 +39,6 @@ const termsContent = {
 };
 
 const refundContent = [
-  "Dentist India Plus follows a fair & transparent refund policy.",
-  " 1) While there is option for any patient to cancel the appointment on their own once the payment is made, but that wouldn't entitle any patient the right to get any refund. Payment once made for appointment or any service, is totally (100%) non-refundable.",
-  "2) But patient can get in touch with our customer care <fill the form / contact us> or the get in touch with the selected/booked doctor (doctor whom patient booked) as soon as possible with their appointment number. Under special consideration, Dentist India Plus or the selected doctor can give a full or partial refund",
   "3) As each doctor has a different set of agreement & understanding with Dentist India Plus, so we don't take any responsibility for any kind of refund.",
   "4) Any kind of potential refund, would require the booked/selected doctor to agree for the refund.",
   "5) Incase there is any kind of refund, then your refund will be processed, and a credit will automatically be applied to your credit card or original method of payment, within a certain amount of days.",
