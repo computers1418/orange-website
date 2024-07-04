@@ -11,74 +11,47 @@ class CustomAppBar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 12, 0),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          ImageIcon(const AssetImage("res/icons/applogo.png"), size: SizeResponsive.get(context, 30), color: const Color(0xFFFF8412),),
-          const SizedBox(width: 6,),
+          Image.asset('res/images/logo_full_color.png', width: 120,),
 
-          Expanded(
-            child: Stack(
-              children: [
-                const Positioned(
-                left: 68,
-                child: ImageIcon(AssetImage("res/icons/blink.png"), size: 8, color: Color(0xFFFF8412),)),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                      Text("HFAVIRE", style: TextStyle(
-                      fontFamily: "Kumbhsans",
-                      color: const Color(0xFF2B275A),
-                      fontSize: TextResponsive.getResponsiveFontSize(context, 14),
-                      height: 1,
-                      fontWeight: FontWeight.w800
-                    )),
-                      Text("IAUIV RLUA", style: TextStyle(
-                        fontFamily: "Kumbhsans",
-                        color: const Color(0xFF2B275A),
-                        fontSize: TextResponsive.getResponsiveFontSize(context, 14),
-                        height: 1,
-                        fontWeight: FontWeight.w800
-                      ))
-                  ],
-                ),
-              ],
-            ),
-          ),
-
-          const SizedBox(width: 12,),
-
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          Row(
             children: [
-                Text("Location", style: TextStyle(
-                fontFamily: "Kumbhsans",
-                color: const Color(0xFF2B275A),
-                fontSize: TextResponsive.getResponsiveFontSize(context, 6),
-                height: 1,
-                fontWeight: FontWeight.w500
-              )),
-                Row(
-                  children: [
-                    Text("DL", style: TextStyle(
-                      fontFamily: "KumbhsansSemiBold",
-                      color: const Color(0xFF2B275A),
-                      fontSize: TextResponsive.getResponsiveFontSize(context, 12),
-                      height: 1,
-                      fontWeight: FontWeight.w800
-                    )),
-                    const Icon(Icons.arrow_drop_down, color: Color(0xFF2B275A), size: 14,)
-                  ],
-                )
-            ],
-          ),
-          const SizedBox(width: 8,),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                    Text("Location", style: TextStyle(
+                    fontFamily: "Kumbhsans",
+                    color: const Color(0xFF2B275A),
+                    fontSize: TextResponsive.getResponsiveFontSize(context, 6),
+                    height: 1,
+                    fontWeight: FontWeight.w500
+                  )),
+                    Row(
+                      children: [
+                        Text("DL", style: TextStyle(
+                          fontFamily: "KumbhsansSemiBold",
+                          color: const Color(0xFF2B275A),
+                          fontSize: TextResponsive.getResponsiveFontSize(context, 12),
+                          height: 1,
+                          fontWeight: FontWeight.w800
+                        )),
+                        const Icon(Icons.arrow_drop_down, color: Color(0xFF2B275A), size: 14,)
+                      ],
+                    )
+                ],
+              ),
+              const SizedBox(width: 8,),
 
-          GestureDetector(
-            onTap: ()=>onMenuClick(),
-            child: CircleAvatar(
-              radius: SizeResponsive.get(context, 18),
-              backgroundColor: const Color(0xFFFF8412),
-              child: const ImageIcon(AssetImage("res/icons/menu.png"), color: Colors.white,),
-            ),
+              GestureDetector(
+                onTap: ()=>onMenuClick(),
+                child: CircleAvatar(
+                  radius: SizeResponsive.get(context, 18),
+                  backgroundColor: const Color(0xFFFF8412),
+                  child: const ImageIcon(AssetImage("res/icons/menu.png"), color: Colors.white,),
+                ),
+              )
+            ],
           )
 
         ],

@@ -9,10 +9,11 @@ class ConfirmedDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DialogWrapper(
-      bottomMargin: 320,
+      bottomMargin: 400,
       onSubmit: onSubmit,
       title1: "BOOKING",
       title2: "CONFIRMED",
+      showStar: true,
       sub: "Hey! John, Your appointment is confirmed with Dr. Diana Cruz ",
       child1: Padding(
         padding: const EdgeInsets.only(bottom: 20),
@@ -44,7 +45,7 @@ class ConfirmedDialog extends StatelessWidget {
                   fontFamily: "Kumbhsans",
                   color: Color(0xFF2B275A),
                   fontSize: 9,
-                  fontWeight: FontWeight.w500
+                  fontWeight: FontWeight.w700
                 )),
               )
             ],

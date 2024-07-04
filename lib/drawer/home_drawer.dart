@@ -2,11 +2,8 @@ import 'dart:math';
 
 import 'package:dentist_india_plus/data.dart';
 import 'package:dentist_india_plus/drawer/drawer_list_item.dart';
-import 'package:dentist_india_plus/extensions%20copy/context_exten.dart';
 import 'package:dentist_india_plus/extensions/num_exten.dart';
-import 'package:dentist_india_plus/routes/app_routes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../responsive/size_responsive.dart';
 import '../responsive/text_responsive.dart';
@@ -109,12 +106,10 @@ class _HomeDrawerState extends State<HomeDrawer> with TickerProviderStateMixin{
               children: [
 
                 ...drawerItems.map((e){
-                  if(drawerItems.indexOf(e)==1){
+                  if(drawerItems.indexOf(e)==2){
                     return InkWell(
                       onTap: (){
-                        if(e["name"]=="Home"){
-                          context.goto(Routes.about);
-                        }
+
                       },
                       child: Container(
                         margin: const EdgeInsets.fromLTRB(12, 0, 12, 8),
@@ -260,6 +255,7 @@ class _HomeDrawerState extends State<HomeDrawer> with TickerProviderStateMixin{
                       return DrawerListItem(
                         icon: '${e["icon"]}', 
                         name: '${e["name"]}', 
+                        path: e["path"],
                         selected: val,
                         onClick: (name){
                           isSelected.value = name;
@@ -330,7 +326,7 @@ class _HomeDrawerState extends State<HomeDrawer> with TickerProviderStateMixin{
                               )),
                                SizedBox(
                                 width: 200,
-                                child: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie.", 
+                                child: Text("Download now to experience all features, updates and immersive experiences.", 
                                 maxLines: 4,
                                 style: TextStyle(
                                   fontFamily: "Kumbhsans",

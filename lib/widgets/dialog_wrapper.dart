@@ -4,7 +4,6 @@ import 'package:dentist_india_plus/widgets/app_info.dart';
 import 'package:dentist_india_plus/widgets/bottomsheet_close.dart';
 import 'package:dentist_india_plus/widgets/bottomsheet_header.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class DialogWrapper extends StatelessWidget {
   final Widget child1;
@@ -13,8 +12,9 @@ class DialogWrapper extends StatelessWidget {
   final String title2;
   final String sub;
   final double? bottomMargin;
+  final bool showStar;
   final VoidCallback onSubmit;
-  const DialogWrapper({super.key, this.bottomMargin, required this.child1, required this.child2, required this.onSubmit, required this.sub, required this.title1, required this.title2});
+  const DialogWrapper({super.key, this.bottomMargin, required this.child1, required this.child2, required this.onSubmit, required this.sub, required this.title1, required this.title2, this.showStar = false});
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +36,7 @@ class DialogWrapper extends StatelessWidget {
             child: BottomsheetHeader(
               title1: title1, 
               title2: title2,
+              showStar: showStar,
               sub: sub,
               fontSize: 10,
             ),

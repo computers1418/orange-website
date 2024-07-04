@@ -4,26 +4,22 @@ import 'package:dentist_india_plus/responsive/size_responsive.dart';
 import 'package:flutter/material.dart';
 
 import '../responsive/text_responsive.dart';
-import '../routes/app_routes.dart';
 
 class DrawerListItem extends StatelessWidget {
   final String icon;
   final String name;
+  final String? path;
   final String selected;
   final ValueChanged onClick;
-  const DrawerListItem({super.key, required this.icon, required this.name, required this.selected, required this.onClick});
+  const DrawerListItem({super.key, required this.icon, required this.name, required this.selected, required this.onClick, this.path});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap:  (){
         onClick(selected==name ? '' : name );
-        if(name=="Home"){
-          context.goto(Routes.about);
-        }else if(name=="Privacy, Terms & Conditions"){
-          context.goto(Routes.terms);
-        }else if(name=="Contact"){
-          context.goto(Routes.contact);
+        if(path!=null){
+          context.goto(path!);
         }
       },
       child: Container(

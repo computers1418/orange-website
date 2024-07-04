@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 import '../../constants/assets_const.dart';
 import '../../widgets/custom_appbar3.dart';
 
-class TermsView extends StatefulWidget {
-  const TermsView({super.key});
+class RefundPolicyView extends StatefulWidget {
+  const RefundPolicyView({super.key});
 
   @override
-  State<TermsView> createState() => _TermsViewState();
+  State<RefundPolicyView> createState() => _RefundPolicyViewState();
 }
 
-class _TermsViewState extends State<TermsView> {
+class _RefundPolicyViewState extends State<RefundPolicyView> {
   
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class _TermsViewState extends State<TermsView> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          "TERMS OF SERVICE".bold(fontSize: 18),
+                          "REFUND POLICY".bold(fontSize: 18),
                         ],
                       )
                     ],
@@ -52,33 +52,25 @@ class _TermsViewState extends State<TermsView> {
             ),
           ),
 
-
           Expanded(
             child: ListView(
               padding: const EdgeInsets.all(20),
               children: [
-                
-                ...termsContent.keys.map(
-                  (e) {
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(e, style: const TextStyle(
-                          fontWeight: FontWeight.w800,
-                          fontSize: 12,
-                          fontFamily: "Kumbhsans",
-                          color: Color(0xFF2B275A)
-                        )),
-                        16.h(),
-                        Text(termsContent[e].toString(), style: const TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 12,
-                          fontFamily: "Kumbhsans",
-                          color: Color(0xFFA6A5B8)
-                        ))
-                      ],
-                    );
-                  }),
+                const Text("Refund & Cancellation Policy", style: TextStyle(
+                  fontWeight: FontWeight.w800,
+                  fontSize: 12,
+                  fontFamily: "Kumbhsans",
+                  color: Color(0xFF2B275A)
+                )),
+
+                18.h(),
+        
+                ...refundContent.map((e) => Text(e, style: const TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 12,
+                  fontFamily: "Kumbhsans",
+                  color: Color(0xFFA6A5B8)
+                ))),
 
                 30.h(),
 
@@ -100,10 +92,10 @@ class _TermsViewState extends State<TermsView> {
                   fontFamily: "Kumbhsans",
                   color: Color(0xFFA6A5B8)
                 ))
-
               ],
             ),
           ),
+          
 
         ],
       ),

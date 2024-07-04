@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../responsive/text_responsive.dart';
 
@@ -7,14 +8,20 @@ class BottomsheetHeader extends StatelessWidget {
   final String title2;
   final String sub;
   final double? fontSize;
+  final bool showStar;
 
-  const BottomsheetHeader({super.key, required this.title1, required this.title2, required this.sub, this.fontSize});
+  const BottomsheetHeader({super.key, required this.title1, required this.title2, required this.sub, this.fontSize, this.showStar = false});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
+
+          Visibility(
+            visible: showStar,
+            child: Image.asset("res/icons/star_spark.gif", width: 90, height: 90,)),
+
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: RichText(

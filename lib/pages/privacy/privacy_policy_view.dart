@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 import '../../constants/assets_const.dart';
 import '../../widgets/custom_appbar3.dart';
 
-class TermsView extends StatefulWidget {
-  const TermsView({super.key});
+class PrivacyPolicyView extends StatefulWidget {
+  const PrivacyPolicyView({super.key});
 
   @override
-  State<TermsView> createState() => _TermsViewState();
+  State<PrivacyPolicyView> createState() => _PrivacyPolicyViewState();
 }
 
-class _TermsViewState extends State<TermsView> {
+class _PrivacyPolicyViewState extends State<PrivacyPolicyView> {
   
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class _TermsViewState extends State<TermsView> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          "TERMS OF SERVICE".bold(fontSize: 18),
+                          "PRIVACY POLICY".bold(fontSize: 18),
                         ],
                       )
                     ],
@@ -52,13 +52,12 @@ class _TermsViewState extends State<TermsView> {
             ),
           ),
 
-
           Expanded(
             child: ListView(
               padding: const EdgeInsets.all(20),
               children: [
                 
-                ...termsContent.keys.map(
+                ...privacyContent.keys.map(
                   (e) {
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,7 +69,7 @@ class _TermsViewState extends State<TermsView> {
                           color: Color(0xFF2B275A)
                         )),
                         16.h(),
-                        Text(termsContent[e].toString(), style: const TextStyle(
+                        Text(privacyContent[e].toString(), style: const TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 12,
                           fontFamily: "Kumbhsans",
@@ -78,33 +77,12 @@ class _TermsViewState extends State<TermsView> {
                         ))
                       ],
                     );
-                  }),
-
-                30.h(),
-
-                const Text("Dentist India Plus ", style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 12,
-                  fontFamily: "Kumbhsans",
-                  color: Color(0xFFA6A5B8)
-                )),
-                const Text("M/s First Health and Technology", style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 12,
-                  fontFamily: "Kumbhsans",
-                  color: Color(0xFFA6A5B8)
-                )),
-                const Text("Services", style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 12,
-                  fontFamily: "Kumbhsans",
-                  color: Color(0xFFA6A5B8)
-                ))
+                  })
 
               ],
             ),
           ),
-
+          
         ],
       ),
     );

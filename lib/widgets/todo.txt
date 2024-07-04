@@ -1,0 +1,6 @@
+1. drawer -> message appear only click on previous appointments
+2. Small delay after go to next screen
+3. change icon color also to white
+4. Underlined text in refund policy screen
+5. contact us text in refund policy screen
+6. onclick open contact us screen

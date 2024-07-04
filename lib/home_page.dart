@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:dentist_india_plus/data.dart';
 import 'package:dentist_india_plus/drawer/drawer_dialog.dart';
 import 'package:dentist_india_plus/drawer/home_drawer.dart';
+import 'package:dentist_india_plus/extensions%20copy/context_exten.dart';
 import 'package:dentist_india_plus/responsive/size_responsive.dart';
 import 'package:dentist_india_plus/widgets/custom_appbar.dart';
 import 'package:dentist_india_plus/widgets/header.dart';
@@ -384,12 +385,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
                     right: SizeResponsive.get(context, side2.value),
                     child: Transform.rotate(
                       angle: -90*(pi/180),
-                      child: Container(
-                        width: SizeResponsive.get(context, 280),
-                        height: SizeResponsive.get(context, 75),
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(image: AssetImage("res/images/home_side.png"), fit: BoxFit.fill)
-                        )
+                      child: InkWell(
+                        onTap: ()=>context.goto(Routes.location),
+                        child: Container(
+                          width: SizeResponsive.get(context, 280),
+                          height: SizeResponsive.get(context, 75),
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(image: AssetImage("res/images/home_side.png"), fit: BoxFit.fill)
+                          )
+                        ),
                       ),
                     ),
                   );
