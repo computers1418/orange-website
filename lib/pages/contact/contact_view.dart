@@ -1,5 +1,7 @@
+import 'package:dentist_india_plus/extensions%20copy/context_exten.dart';
 import 'package:dentist_india_plus/extensions%20copy/number_exten.dart';
 import 'package:dentist_india_plus/extensions%20copy/string_exten.dart';
+import 'package:dentist_india_plus/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/assets_const.dart';
@@ -19,7 +21,7 @@ class _ContactViewState extends State<ContactView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: ListView(
         children: [
           Container(
             decoration: const BoxDecoration(
@@ -74,62 +76,138 @@ class _ContactViewState extends State<ContactView> {
           10.h(),
 
           const ContactForm(),
-          
-          Expanded(
-            child: Stack(
-              alignment: Alignment.bottomCenter,
+
+                  const SizedBox(height: 10,),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
               children: [
-            
-                Positioned(
-                  right: -50,
-                  bottom: -50,
-                  child: Image.asset(AssetsConst.logo, width: 200, height: 200, color: ColorsConst.primary.withOpacity(0.05),)),
-            
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-                      child: Row(
-                        children: [
-                          "Made with love in India".semibold(fontSize: 14, color: ColorsConst.textLight),
-                          12.w(),
-                          Image.asset(AssetsConst.flag, width: 18, height: 12)
-                        ],
+                Row(
+                    children: [
+                      Expanded(
+                        flex: 6,
+                        child: GestureDetector(
+                          onTap: ()=>context.goto('/'),
+                          child: "Home".bold(fontSize: 12, color: ColorsConst.text),
+                        ),
                       ),
-                    ),
-                
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          "Follow us".bold(fontSize: 16, color: ColorsConst.text),
-                          10.h(),
-                          Row(
-                            children: [
-                              ...[AssetsConst.instagram, AssetsConst.twitter, AssetsConst.facebook].map((e) => 
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 6),
-                                  child: CircleAvatar(
-                                    radius: 15,
-                                    backgroundColor: ColorsConst.text,
-                                    child: Image.asset(e, width: 14, height: 14),
-                                  )  
-                                )
-                              )
-                
-                            ],
-                          ),
-                          16.h()
-                        ],
+                      Expanded(
+                        flex: 4,
+                        child: GestureDetector(
+                          onTap: ()=>context.goto(Routes.terms),
+                          child: "Terms of service".bold(fontSize: 12, color: ColorsConst.text),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
+                  const SizedBox(height: 4,),
+                  Row(
+                    children: [
+                      Expanded(
+                        flex: 6,
+                        child: GestureDetector(
+                          onTap: ()=>context.goto(Routes.about),
+                          child: "About Us".bold(fontSize: 12, color: ColorsConst.text),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 4,
+                        child: GestureDetector(
+                          onTap: ()=>context.goto(Routes.refund),
+                          child: "Refund Policy".bold(fontSize: 12, color: ColorsConst.text),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4,),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        flex: 6,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            "Mailing Address".bold(fontSize: 12, color: ColorsConst.text),
+                            const SizedBox(height: 5,),
+                            "M/s First Health and Technology Services ".regular(fontSize: 8, color: Colors.grey),
+                            "Email - support@dentistindiaplus.com".regular(fontSize: 8, color: Colors.grey),
+                            "Ph - +91 99106 55367 ".regular(fontSize: 8, color: Colors.grey),
+                            "New Delhi Address - 9/329A, 3rd Floor, Om Nivas, Lalita Park, Laxmi Nagar, New Delhi - 110092 INDIA ".regular(fontSize: 8, color: Colors.grey),
+                            "Bangalore Office - 811, 10th A Main, Suite No.- 417, 1st Floor, Indira Nagar, Bengaluru - 560038 INDIA ".regular(fontSize: 8, color: Colors.grey)
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        flex: 4,
+                        child: GestureDetector(
+                          onTap: ()=>context.goto(Routes.privacy),
+                          child: "Privacy Policy".bold(fontSize: 12, color: ColorsConst.text),
+                        ),
+                      ),
+                    ],
+                  ),
               ],
             ),
+          ),
+
+                  const SizedBox(height: 10,),
+          
+          Stack(
+            alignment: Alignment.bottomCenter,
+            children: [
+          
+              Positioned(
+                right: -50,
+                bottom: -50,
+                child: Image.asset(AssetsConst.logo, width: 200, height: 200, color: ColorsConst.primary.withOpacity(0.05),)),
+          
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+              
+                  Padding(  
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                    child: Row(
+                      children: [
+                        "Made with love in India".semibold(fontSize: 14, color: ColorsConst.textLight),
+                        12.w(),
+                        Image.asset(AssetsConst.flag, width: 18, height: 12)
+                      ],
+                    ),
+                  ),
+              
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        "Follow us".bold(fontSize: 16, color: ColorsConst.text),
+                        10.h(),
+                        Row(
+                          children: [
+                            ...[AssetsConst.instagram, AssetsConst.twitter, AssetsConst.facebook].map((e) => 
+                              Padding(
+                                padding: const EdgeInsets.only(right: 6),
+                                child: CircleAvatar(
+                                  radius: 15,
+                                  backgroundColor: ColorsConst.text,
+                                  child: Image.asset(e, width: 14, height: 14),
+                                )  
+                              )
+                            )
+              
+                          ],
+                        ),
+                        16.h()
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
 
 
