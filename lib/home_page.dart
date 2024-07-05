@@ -10,6 +10,7 @@ import 'package:dentist_india_plus/widgets/header.dart';
 import 'package:dentist_india_plus/widgets/home_badge.dart';
 import 'package:dentist_india_plus/widgets/indicator.dart';
 import 'package:dentist_india_plus/widgets/inner_item.dart';
+import 'package:dentist_india_plus/widgets/loader_min.dart';
 import 'package:dentist_india_plus/widgets/styled_button.dart';
 import 'package:dentist_india_plus/widgets/water_mark.dart';
 import 'package:flutter/material.dart';
@@ -51,6 +52,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
   @override
   void initState() {
     super.initState();
+
+    Future.delayed(const Duration(seconds: 1), (){
+      showDialog(context: context, builder: (_){
+      return const LoaderMin();
+      });
+    });
+
     _controller = AnimationController(duration: const Duration(seconds: 4), vsync: this);
 
     _pageController.addListener(_onScroll);
@@ -157,6 +165,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
   void dispose() {
     _pageController.removeListener(_onScroll);
     _pageController.dispose();
+    
     super.dispose();
   }
 
