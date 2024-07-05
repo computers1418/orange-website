@@ -11,7 +11,8 @@ class DrawerListItem extends StatelessWidget {
   final String? path;
   final String selected;
   final ValueChanged onClick;
-  const DrawerListItem({super.key, required this.icon, required this.name, required this.selected, required this.onClick, this.path});
+  final ValueNotifier notifier;
+  const DrawerListItem({super.key, required this.icon, required this.name, required this.selected, required this.onClick, this.path, required this.notifier});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class DrawerListItem extends StatelessWidget {
         onClick(selected==name ? '' : name );
         if(path!=null){
           Future.delayed(const Duration(milliseconds: 800), (){
-            context.goto(path!);
+            context.goto(path!).then((_)=>notifier.value='');
           });
         }
       },

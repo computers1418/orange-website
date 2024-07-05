@@ -253,10 +253,11 @@ class _HomeDrawerState extends State<HomeDrawer> with TickerProviderStateMixin{
                     valueListenable: isSelected,
                     builder: (_, val, __) {
                       return DrawerListItem(
-                        icon: '${e["icon"]}', 
+                        icon: val == '${e["name"]}' ? '${e["icon"]}': '${e["active"]}', 
                         name: '${e["name"]}', 
                         path: e["path"],
                         selected: val,
+                        notifier: isSelected,
                         onClick: (name){
                           isSelected.value = name;
                           if(name!='' && name=="Previous Appointments"){

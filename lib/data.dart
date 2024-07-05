@@ -49,39 +49,47 @@ const refundContent = [
 const drawerItems = [
   {
     "icon": "res/icons/home.png",
+    "active": "res/images/home_white.png",
     "name": "Home"
   },
   {
     "icon": "res/images/about.png",
+    "active": "res/images/about_white.png",
     "name": "About Us",
     "path": Routes.about
   },
   {
     "icon": "res/icons/nav2.png",
+    "active": "res/images/nav2_white.png",
     "name": "Upcoming Appointments"
   },
   {
     "icon": "res/icons/nav3.png",
+    "active": "res/images/nav3_white.png",
     "name": "Previous Appointments"
   },
   {
     "icon": "res/images/terms.png",
     "name": "Terms Of Service",
+    "active": "res/images/terms_white.png",
     "path": Routes.terms
   },
   {
     "icon": "res/images/privacy.png",
     "name": "Privacy Policy",
+    "active": "res/images/privacy_white.png",
     "path": Routes.privacy
   },
   {
     "icon": "res/images/refund.png",
     "name": "Refund Policy",
+    "active": "res/images/refund_white.png",
     "path": Routes.refund
   },
   {
     "icon": "res/images/phone.png",
     "name": "Contact Us",
+    "active": "res/images/contact_white.png",
     "path": Routes.contact
   }
 ];
