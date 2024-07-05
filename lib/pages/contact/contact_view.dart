@@ -204,7 +204,7 @@ class _ContactViewState extends State<ContactView> {
             ),
           ),
 
-                  const SizedBox(height: 10,),
+                  const SizedBox(height: 30,),
           
           Stack(
             alignment: Alignment.bottomCenter,
@@ -217,7 +217,7 @@ class _ContactViewState extends State<ContactView> {
           
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
               
                   Padding(  
