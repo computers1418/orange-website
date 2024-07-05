@@ -3,6 +3,7 @@ import 'package:dentist_india_plus/extensions%20copy/number_exten.dart';
 import 'package:dentist_india_plus/extensions%20copy/string_exten.dart';
 import 'package:dentist_india_plus/routes/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../../constants/assets_const.dart';
 import '../../constants/colors_const.dart';
@@ -17,6 +18,7 @@ class ContactView extends StatefulWidget {
 }
 
 class _ContactViewState extends State<ContactView> {
+  bool show = false;
   
   @override
   Widget build(BuildContext context) {
@@ -68,8 +70,8 @@ class _ContactViewState extends State<ContactView> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 "Contact us!".extrabold(fontSize: 20, color: ColorsConst.text),
-                4.h(),
-                "First Health and Technology Services".semibold(fontSize: 13, color: ColorsConst.text)
+                2.h(),
+                "Happy Teeth, Happy You".semibold(fontSize: 13, color: ColorsConst.text)
               ],
             ),  
           ),
@@ -88,14 +90,26 @@ class _ContactViewState extends State<ContactView> {
                         flex: 6,
                         child: GestureDetector(
                           onTap: ()=>context.goto('/'),
-                          child: "Home".bold(fontSize: 12, color: ColorsConst.text),
+                          child: Row(
+                            children: [
+                              "Home".bold(fontSize: 12, color: ColorsConst.text),
+                              4.w(),
+                              const Icon(Icons.arrow_forward_outlined, color: ColorsConst.text, size: 10),
+                            ],
+                          ),
                         ),
                       ),
                       Expanded(
                         flex: 4,
                         child: GestureDetector(
                           onTap: ()=>context.goto(Routes.terms),
-                          child: "Terms of service".bold(fontSize: 12, color: ColorsConst.text),
+                          child: Row(
+                            children: [
+                               "Terms of service".bold(fontSize: 12, color: ColorsConst.text),
+                              4.w(),
+                              const Icon(Icons.arrow_forward_outlined, color: ColorsConst.text, size: 10),
+                            ],
+                          ),
                         ),
                       ),
                     ],
@@ -107,14 +121,26 @@ class _ContactViewState extends State<ContactView> {
                         flex: 6,
                         child: GestureDetector(
                           onTap: ()=>context.goto(Routes.about),
-                          child: "About Us".bold(fontSize: 12, color: ColorsConst.text),
+                          child:Row(
+                            children: [
+                               "About Us".bold(fontSize: 12, color: ColorsConst.text),
+                              4.w(),
+                              const Icon(Icons.arrow_forward_outlined, color: ColorsConst.text, size: 10),
+                            ],
+                          ),
                         ),
                       ),
                       Expanded(
                         flex: 4,
                         child: GestureDetector(
                           onTap: ()=>context.goto(Routes.refund),
-                          child: "Refund Policy".bold(fontSize: 12, color: ColorsConst.text),
+                          child:Row(
+                            children: [
+                               "Refund Policy".bold(fontSize: 12, color: ColorsConst.text),
+                              4.w(),
+                              const Icon(Icons.arrow_forward_outlined, color: ColorsConst.text, size: 10),
+                            ],
+                          ),
                         ),
                       ),
                     ],
@@ -128,13 +154,34 @@ class _ContactViewState extends State<ContactView> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            "Mailing Address".bold(fontSize: 12, color: ColorsConst.text),
+                            GestureDetector(
+                              onTap: ()=>setState(()=>show=!show),
+                              child: Row(
+                                children: [
+                                  "Mailing Address".bold(fontSize: 12, color: ColorsConst.text),
+                                  4.w(),
+                                  const Icon(Icons.arrow_forward_outlined, color: ColorsConst.text, size: 10),
+                                ],
+                              ),
+                            ),
+                            
                             const SizedBox(height: 5,),
-                            "M/s First Health and Technology Services ".regular(fontSize: 8, color: Colors.grey),
-                            "Email - support@dentistindiaplus.com".regular(fontSize: 8, color: Colors.grey),
-                            "Ph - +91 99106 55367 ".regular(fontSize: 8, color: Colors.grey),
-                            "New Delhi Address - 9/329A, 3rd Floor, Om Nivas, Lalita Park, Laxmi Nagar, New Delhi - 110092 INDIA ".regular(fontSize: 8, color: Colors.grey),
-                            "Bangalore Office - 811, 10th A Main, Suite No.- 417, 1st Floor, Indira Nagar, Bengaluru - 560038 INDIA ".regular(fontSize: 8, color: Colors.grey)
+                            Visibility(
+                              visible: show,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  "M/s First Health and Technology Services ".regular(fontSize: 9, color: Colors.grey),
+                                  4.h(),
+                                  "Email - support@dentistindiaplus.com".regular(fontSize: 9, color: Colors.grey),
+                                  4.h(),
+                                  "Ph - +91 99106 55367 ".regular(fontSize: 9, color: Colors.grey),
+                                  4.h(),
+                                  "New Delhi Address - 9/329A, 3rd Floor, Om Nivas, Lalita Park, Laxmi Nagar, New Delhi - 110092 INDIA ".regular(fontSize: 9, color: Colors.grey),
+                                  4.h(),
+                                  "Bangalore Office - 811, 10th A Main, Suite No.- 417, 1st Floor, Indira Nagar, Bengaluru - 560038 INDIA ".regular(fontSize: 9, color: Colors.grey)
+                                ],
+                              ))
                           ],
                         ),
                       ),
@@ -142,7 +189,13 @@ class _ContactViewState extends State<ContactView> {
                         flex: 4,
                         child: GestureDetector(
                           onTap: ()=>context.goto(Routes.privacy),
-                          child: "Privacy Policy".bold(fontSize: 12, color: ColorsConst.text),
+                          child: Row(
+                              children: [
+                                "Privacy Policy".bold(fontSize: 12, color: ColorsConst.text),
+                                4.w(),
+                                const Icon(Icons.arrow_forward_outlined, color: ColorsConst.text, size: 10),
+                              ],
+                            ),
                         ),
                       ),
                     ],
