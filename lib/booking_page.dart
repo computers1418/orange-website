@@ -2,7 +2,10 @@ import 'dart:math';
 import 'package:dentist_india_plus/extensions/num_exten.dart';
 import 'package:dentist_india_plus/utils.dart';
 import 'package:dentist_india_plus/widgets/booking_form.dart';
+import 'package:dentist_india_plus/widgets/doctor_instruction_card.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'drawer/drawer_dialog.dart';
 import 'drawer/home_drawer.dart';
 import 'responsive/size_responsive.dart';
@@ -52,10 +55,12 @@ class _BookingPageState extends State<BookingPage> with TickerProviderStateMixin
   late Animation<double> header;
   late Animation<double> bottom;
   late Animation<double> sheet;
+  late Animation<double> topsheet;
 
 
   ValueNotifier showProfile = ValueNotifier(false);
   late AnimationController _bottomSheetController; 
+  late AnimationController _topSheetController; 
   late Animation<Offset> slideClose;
   late Animation<double> profileBottom;
   late Animation<double> profileHeader;
@@ -101,11 +106,21 @@ class _BookingPageState extends State<BookingPage> with TickerProviderStateMixin
         ),
       ));
     _bottomSheetController = AnimationController(duration: const Duration(milliseconds: 600), vsync: this);
+    
     sheet = Tween<double>(
         begin: -80,
         end: 0
       ).animate(CurvedAnimation(
         parent: _bottomSheetController,
+        reverseCurve: Curves.ease,
+        curve: Curves.easeOut,
+        ));
+    _topSheetController = AnimationController(duration: const Duration(milliseconds: 600), vsync: this);
+    topsheet = Tween<double>(
+        begin: -200,
+        end: 0
+      ).animate(CurvedAnimation(
+        parent: _topSheetController,
         reverseCurve: Curves.ease,
         curve: Curves.easeOut,
         ));
@@ -239,26 +254,45 @@ class _BookingPageState extends State<BookingPage> with TickerProviderStateMixin
               }
             ),
 
+
+            
+
+
+           
+
             Column(
               children: [
                 ValueListenableBuilder(
-                  valueListenable: showProfile,
-                  builder: (_, val, __) {
-                    return CustomAppBar2(
-                      closeIcon: val ? Icons.arrow_back : null,
-                      onMenuClick: (){
-                        showDialog(
-                          context: context, 
-                          builder: (_)=>const DrawerDialog()
+                  valueListenable: showDoctor,
+                  builder: (_, enable, __) {
+                    return ValueListenableBuilder(
+                      valueListenable: showProfile,
+                      builder: (_, val, __) {
+                        return CustomAppBar2(
+                          widget: Visibility(
+                            visible: enable,
+                            child: GestureDetector(
+                              onTap: ()=>_topSheetController.forward(),
+                              child: Padding(padding: const EdgeInsets.only(right: 10),
+                              child: Image.asset('res/images/down_circle.png', width: 30, height: 30,)),
+                            ),
+                          ),
+                          closeIcon: val ? Icons.arrow_back : null,
+                          onMenuClick: (){
+                            showDialog(
+                              context: context, 
+                              builder: (_)=>const DrawerDialog()
+                            );
+                          },
+                          onClose: (){
+                            if(val){
+                              closeProfile();
+                            }else{
+                              Navigator.pop(context);
+                            }
+                          },
                         );
-                      },
-                      onClose: (){
-                        if(val){
-                          closeProfile();
-                        }else{
-                          Navigator.pop(context);
-                        }
-                      },
+                      }
                     );
                   }
                 ),
@@ -365,6 +399,9 @@ class _BookingPageState extends State<BookingPage> with TickerProviderStateMixin
                           scale: bottom.value,
                           alignment: Alignment.bottomCenter,
                           child: BookingForm(
+                            onSelected: (){
+                              _topSheetController.forward();
+                            },
                             dateTime: dateTime, 
                             problem: problem, 
                             doctor: doctor, 
@@ -444,7 +481,7 @@ class _BookingPageState extends State<BookingPage> with TickerProviderStateMixin
               }
             ),
 
-            AnimatedBuilder(
+             AnimatedBuilder(
               animation: side2,
               builder: (_, val) {
                 return Positioned(
@@ -469,9 +506,9 @@ class _BookingPageState extends State<BookingPage> with TickerProviderStateMixin
                 builder: (_, val) {
                   return Positioned(
                     top: SizeResponsive.get(context, 100),
-                    left: SizeResponsive.get(context, side3.value),
+                    right: SizeResponsive.get(context, side3.value),
                     child: Transform.rotate(
-                      angle: 90*(pi/180),
+                      angle: -90*(pi/180),
                       child: Container(
                         width: SizeResponsive.get(context, 260),
                         height: SizeResponsive.get(context, 75),
@@ -483,6 +520,29 @@ class _BookingPageState extends State<BookingPage> with TickerProviderStateMixin
                   );
                 }
               ),
+
+            AnimatedBuilder(
+              animation: topsheet,
+              builder: (_, val) {
+                return Positioned(
+                top: topsheet.value, right: 0, left: 0,
+                  child: GestureDetector(
+                    onTap: (){
+                      _topSheetController.reverse();
+                      showDoctor.value = false;
+                    },
+                    child: DoctorinstructionCard(
+                  showProfile: showProfile,
+                  closeCard: (){
+                    _topSheetController.reverse();
+                  },
+                  closeProfile: ()=>closeProfile(),
+                )));
+              },
+            )
+
+            
+
 
           ],
         )

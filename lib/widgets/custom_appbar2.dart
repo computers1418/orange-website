@@ -7,7 +7,8 @@ class CustomAppBar2 extends StatelessWidget {
   final IconData? closeIcon;
   final VoidCallback onClose;
   final VoidCallback onMenuClick;
-  const CustomAppBar2({super.key, this.closeIcon, required this.onClose, required this.onMenuClick});
+  final Widget? widget;
+  const CustomAppBar2({super.key, this.closeIcon, required this.onClose, required this.onMenuClick, this.widget});
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,9 @@ class CustomAppBar2 extends StatelessWidget {
 
           Row(
             children: [
+
+              widget ?? const SizedBox.shrink(),
+
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

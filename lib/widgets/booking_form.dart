@@ -20,8 +20,9 @@ class BookingForm extends StatelessWidget {
   final ValueNotifier showDoctor;
   final ValueNotifier selectedDoctor;
   final ValueChanged openProfile;
+  final VoidCallback onSelected;
 
-  const BookingForm({super.key, required this.dateTime, required this.problem, required this.doctor, required this.bottomSheetController, required this.sheet, required this.showDoctor, required this.selectedDoctor, required this.openProfile});
+  const BookingForm({super.key, required this.dateTime, required this.problem, required this.doctor, required this.bottomSheetController, required this.sheet, required this.showDoctor, required this.selectedDoctor, required this.openProfile, required this.onSelected});
 
   @override
   Widget build(BuildContext context) {
@@ -225,6 +226,7 @@ class BookingForm extends StatelessWidget {
                                   doctor.setText('${e["name"]}');
                                   bottomSheetController.forward();
                                   showDoctor.value = true;
+                                  onSelected();
                                 },
                               );
                             });
