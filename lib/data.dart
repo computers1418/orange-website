@@ -11,6 +11,14 @@ const cities = [
   "Kochin"
 ];
 
+var cityItems = [
+  { "city": "Bengaluru", "image": "res/images/city1.png" },
+  { "city": "Mumbai", "image": "res/images/city2.png" },
+  { "city": "New Delhi", "image": "res/images/city3.png" },
+  { "city": "Chennai", "image": "res/images/city4.png" },
+  { "city": "Hyderabad", "image": "res/images/city5.png" }
+];
+
 const aboutContent = "Dentist India Plus is one of the top most dentist brand in the country and serving in more than 60+ cities. Quality and high standards of treatment has been the motto from the inception and allowed the brand to become a household name ! It believes that good and reliable healthcare is a fundamental human right and we want to do our part in making that a reality.\n\nDentist India Plus offers : selected few & carefully curated, top class doctors who will provide high quality care for people across geographies.Many of the dentists have been in practice for over 25 years, and a few others are second generation dentists, with a family legacy of selfless service and innovation since the 1950s.\n\nDentist India Plus leverages the latest technology as well as our deep connections and knowledge in the healthcare space, to help many people across India and around the world access top quality healthcare. Unlike many other organisations, Dentist India Plu  has been crafted with a vision and honest work ethic, combined with the global expertise of the management team in technology and public reach.";
 const visionContent = "Every human being should have an ability to access good healthcare irrespective of their geography or economic situation. Dentist India Plus’s vision is to enable anyone access good quality healthcare at a price they can afford";
 

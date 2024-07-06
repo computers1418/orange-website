@@ -1,5 +1,2 @@
-1) add clinic map (orange) on footer
-2) in doctor select - update content as “Profile/Clinic Map” as below given instruction
-3) Need to make this - once doctor is selected, with updated footer a new header with a message drops down and stays for 6 seconds before closing auto. “Blue button” also is displayed after doctor selected (video above)
-4) add “dentist india plus” logo in all screens and user’s image in header for all screen (if user login already)
-5) Update city sliders
+1. Slider animation
+2. Loader bottom text
