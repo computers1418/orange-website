@@ -38,11 +38,125 @@
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
+
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      height: 100vh;
+      width: 100%;
+      background: linear-gradient(to bottom, #FF8412, #FF8412);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .loader {
+      display: flex;
+      gap: 8px;
+    }
+
+    .loader img {
+      width: 18px;
+      height: 18px;
+      animation: bounce 1.2s infinite;
+    }
+
+    .loader img:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .loader img:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .loader img:nth-child(3) {
+      animation-delay: 0.8s;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: scale(0.5);
+      }
+      50% {
+        transform: scale(1.5);
+      }
+    }
+
+    h3 {
+      font-family: system-ui, sans-serif;
+      font-size: 10px;
+      margin: 0;
+      font-weight: 400;
+      padding: 0 .1em;
+      color: #FFF;
+    }
+
+    .animate-one, .animate-two {
+      opacity: 0;
+      position: absolute;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+    }
+
+    .animate-one {
+        align-items: center;
+        text-align: center;
+      animation-name: moveUpFadeOne;
+    }
+
+    .animate-two {
+      animation-name: moveUpFadeTwo;
+    }
+
+     @keyframes moveUpFadeOne {
+      0%, 50%, 100% {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      25% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes moveUpFadeTwo {
+      0%, 50%, 100% {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      75% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .text-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      right: 0;
+      padding: 0 20px;
+      text-align: center;
+    }
+  </style>
 </head>
-<body style="padding: 0px; margin: 0px;">
-  <div style="height: 100vh; width: 100%; background: linear-gradient(to bottom, #FF8412, #FF8412); display: flex; align-items: center; justify-content: center;">
-    <img src="loader.gif" width="200px" height="200px"/>
+<body style="padding: 0px; margin: 0px; background: #2B275A; position: relative">
+  <div class="loader">
+    <img src="res/images/loader_logo.png" alt="Loader Image 1">
+    <img src="res/images/loader_logo.png" alt="Loader Image 2">
+    <img src="res/images/loader_logo.png" alt="Loader Image 3">
+    
   </div>
+  
+  <div class="text-container">
+    <h3 class="animate-one">Smiling brighter starts here. Book your appointment in a flash!</h3>
+    <h3 class="animate-two">Taking care of your teeth is a breeze. Schedule your visittoday!</h3>
+  </div>
+
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
