@@ -25,34 +25,57 @@ class _RefundPolicyViewState extends State<RefundPolicyView> {
         children: [
           Container(
             decoration: const BoxDecoration(
-                image: DecorationImage(
-                    fit: BoxFit.fill, image: AssetImage(AssetsConst.pattern))),
-            child: Column(
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage(AssetsConst.pattern),
+              ),
+            ),
+            child: Stack(
+              alignment: Alignment.topCenter,
               children: [
-                const CustomAppBar3(),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(26, 0, 26, 30),
-                  child: Row(
-                    children: [
-                      CircleAvatar(
-                        radius: 24,
-                        backgroundColor: Colors.white,
-                        child: Image.asset(
-                          AssetsConst.terms,
-                          width: 24,
-                          height: 24,
-                        ),
-                      ),
-                      10.w(),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          "REFUND POLICY".bold(fontSize: 18),
-                        ],
-                      )
-                    ],
+                Positioned(
+                  top: -MediaQuery.of(context).size.width / 2.3,
+                  child: CircleAvatar(
+                    radius: MediaQuery.of(context).size.width / 3.5,
+                    backgroundColor: Colors.white.withOpacity(0.1),
                   ),
-                )
+                ),
+                Positioned(
+                  top: -MediaQuery.of(context).size.width / 1.5,
+                  child: CircleAvatar(
+                    radius: MediaQuery.of(context).size.width / 2,
+                    backgroundColor: Colors.white.withOpacity(0.1),
+                  ),
+                ),
+                Column(
+                  children: [
+                    const CustomAppBar3(),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(26, 0, 26, 30),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CircleAvatar(
+                            radius: 24,
+                            backgroundColor: Colors.white,
+                            child: Image.asset(
+                              AssetsConst.terms,
+                              width: 24,
+                              height: 24,
+                            ),
+                          ),
+                          10.w(),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              "REFUND POLICY".bold(fontSize: 18),
+                            ],
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ],
             ),
           ),

@@ -14,7 +14,6 @@ class PrivacyPolicyView extends StatefulWidget {
 }
 
 class _PrivacyPolicyViewState extends State<PrivacyPolicyView> {
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,65 +23,85 @@ class _PrivacyPolicyViewState extends State<PrivacyPolicyView> {
             decoration: const BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.fill,
-                image: AssetImage(AssetsConst.pattern))
+                image: AssetImage(AssetsConst.pattern),
+              ),
             ),
-            child: Column(
+            child: Stack(
+              alignment: Alignment.topCenter,
               children: [
-                const CustomAppBar3(),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(26, 0, 26, 30),
-                  child: Row(
-                    children: [
-                      CircleAvatar(
-                        radius: 24,
-                        backgroundColor: Colors.white,
-                        child: Image.asset(AssetsConst.terms, width: 24, height: 24,),
-                      ),
-                      10.w(),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          "PRIVACY POLICY".bold(fontSize: 18),
-                        ],
-                      )
-                    ],
+                Positioned(
+                  top: -MediaQuery.of(context).size.width / 2.3,
+                  child: CircleAvatar(
+                    radius: MediaQuery.of(context).size.width / 3.5,
+                    backgroundColor: Colors.white.withOpacity(0.1),
                   ),
-                )
+                ),
+                Positioned(
+                  top: -MediaQuery.of(context).size.width / 1.5,
+                  child: CircleAvatar(
+                    radius: MediaQuery.of(context).size.width / 2,
+                    backgroundColor: Colors.white.withOpacity(0.1),
+                  ),
+                ),
+                Column(
+                  children: [
+                    const CustomAppBar3(),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(26, 0, 26, 30),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CircleAvatar(
+                            radius: 24,
+                            backgroundColor: Colors.white,
+                            child: Image.asset(
+                              AssetsConst.terms,
+                              width: 24,
+                              height: 24,
+                            ),
+                          ),
+                          10.w(),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              "PRIVACY POLICY".bold(fontSize: 18),
+                            ],
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ],
             ),
           ),
-
           Expanded(
             child: ListView(
               padding: const EdgeInsets.all(20),
               children: [
-                
-                ...privacyContent.keys.map(
-                  (e) {
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(e, style: const TextStyle(
-                          fontWeight: FontWeight.w800,
-                          fontSize: 12,
-                          fontFamily: "Kumbhsans",
-                          color: Color(0xFF2B275A)
-                        )),
-                        16.h(),
-                        Text(privacyContent[e].toString(), style: const TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 12,
-                          fontFamily: "Kumbhsans",
-                          color: Color(0xFFA6A5B8)
-                        ))
-                      ],
-                    );
-                  })
-
+                ...privacyContent.keys.map((e) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(e,
+                          style: const TextStyle(
+                              fontWeight: FontWeight.w800,
+                              fontSize: 12,
+                              fontFamily: "Kumbhsans",
+                              color: Color(0xFF2B275A))),
+                      16.h(),
+                      Text(privacyContent[e].toString(),
+                          style: const TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12,
+                              fontFamily: "Kumbhsans",
+                              color: Color(0xFFA6A5B8)))
+                    ],
+                  );
+                })
               ],
             ),
           ),
-          
         ],
       ),
     );
