@@ -338,35 +338,35 @@ class _BookingPageState extends State<BookingPage>
                               );
                             },
                           ),
-                          Positioned(
-                            bottom: 0,
-                            right: 0,
-                            left: 0,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "Read Client Reviews",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w700,
-                                    fontSize:
-                                        TextResponsive.getResponsiveFontSize(
-                                            context, 10),
-                                    fontFamily: "Kumbhsans",
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 4,
-                                ),
-                                Icon(
-                                  Icons.arrow_forward,
-                                  size: SizeResponsive.get(context, 10),
-                                  color: Colors.white,
-                                )
-                              ],
-                            ),
-                          ),
+                          // Positioned(
+                          //   bottom: 0,
+                          //   right: 0,
+                          //   left: 0,
+                          //   child: Row(
+                          //     mainAxisAlignment: MainAxisAlignment.center,
+                          //     children: [
+                          //       Text(
+                          //         "Read Client Reviews",
+                          //         style: TextStyle(
+                          //           color: Colors.white,
+                          //           fontWeight: FontWeight.w700,
+                          //           fontSize:
+                          //               TextResponsive.getResponsiveFontSize(
+                          //                   context, 10),
+                          //           fontFamily: "Kumbhsans",
+                          //         ),
+                          //       ),
+                          //       const SizedBox(
+                          //         width: 4,
+                          //       ),
+                          //       Icon(
+                          //         Icons.arrow_forward,
+                          //         size: SizeResponsive.get(context, 10),
+                          //         color: Colors.white,
+                          //       )
+                          //     ],
+                          //   ),
+                          // ),
                         ],
                       );
                     },
@@ -432,7 +432,12 @@ class _BookingPageState extends State<BookingPage>
                             padding: EdgeInsets.only(right: 16, left: 40),
                             child: ProfileAddress()),
                         8.vgap(),
-                        const Expanded(child: ProfileTab()),
+                        const Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 20),
+                            child: ProfileTab(),
+                          ),
+                        ),
                         const Expanded(child: Reviews()),
                         26.vgap(),
                         Padding(
