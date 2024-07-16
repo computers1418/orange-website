@@ -20,14 +20,15 @@ class StyledButton extends StatelessWidget {
                 ? SizeResponsive.get(context, 45)
                 : SizeResponsive.get(context, 60),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
-                boxShadow: [
-                  BoxShadow(
-                      color: secondary
-                          ? const Color(0xFFFF8412)
-                          : const Color(0xFF2B275A),
-                      blurRadius: 30)
-                ]),
+              borderRadius: BorderRadius.circular(100),
+              boxShadow: [
+                BoxShadow(
+                    color: secondary
+                        ? const Color(0xFFFF8412)
+                        : const Color(0xFF2B275A),
+                    blurRadius: 30)
+              ],
+            ),
           ),
           Container(
             // width: 200,
@@ -43,8 +44,14 @@ class StyledButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(35),
               color:
                   secondary ? const Color(0xFFFF8412) : const Color(0xFF2B275A),
-              image: const DecorationImage(
-                image: AssetImage("res/images/star_frame.png"),
+              image: DecorationImage(
+                image: const AssetImage(
+                  "res/images/star_frame.png",
+                ),
+                colorFilter: ColorFilter.mode(
+                  secondary ? const Color(0xFFFF8412) : const Color(0xFF2B275A),
+                  BlendMode.srcATop,
+                ),
               ),
             ),
             alignment: Alignment.center,

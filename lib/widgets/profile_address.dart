@@ -14,16 +14,24 @@ class ProfileAddress extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: const Color(0xFF2B275A),
-        borderRadius: BorderRadius.circular(40)
+        borderRadius: BorderRadius.circular(40),
       ),
-      height: SizeResponsive.get(context, 65),
+      padding: EdgeInsets.symmetric(
+        horizontal: SizeResponsive.get(context, 16),
+        vertical: SizeResponsive.get(context, 8),
+      ),
+      // height: SizeResponsive.get(context, 65),
       child: Row(
         children: [
           Stack(
             alignment: Alignment.center,
             children: [
               Image.asset("res/images/roads.png"),
-              const Icon(Icons.room, color: Color(0xFFFF8412), size: 20,)
+              const Icon(
+                Icons.room,
+                color: Color(0xFFFF8412),
+                size: 20,
+              )
             ],
           ),
           Expanded(
@@ -31,16 +39,26 @@ class ProfileAddress extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                "Dental Clinic".extraBold(fontSize: TextResponsive.getResponsiveFontSize(context, 14)),
+                "Dental Clinic".extraBold(
+                    fontSize:
+                        TextResponsive.getResponsiveFontSize(context, 14)),
                 3.vgap(),
-                "12/2, Mathura Road, Sector 37, Faridabad - Delhi".medium(fontSize: height>700 ? 12: TextResponsive.getResponsiveFontSize(context, 10))
+                "12/2, Mathura Road, Sector 37, Faridabad - Delhi".medium(
+                    fontSize: height > 700
+                        ? 12
+                        : TextResponsive.getResponsiveFontSize(context, 10))
               ],
             ),
           ),
+          20.hgap(),
           CircleAvatar(
             radius: SizeResponsive.get(context, 16),
             backgroundColor: const Color(0xFFFF8412),
-            child: Icon(Icons.arrow_forward, color: Colors.white, size: SizeResponsive.get(context, 16),),
+            child: Icon(
+              Icons.arrow_forward,
+              color: Colors.white,
+              size: SizeResponsive.get(context, 16),
+            ),
           ),
           SizeResponsive.get(context, 16).toInt().hgap()
         ],

@@ -4,13 +4,17 @@ import 'package:dentist_india_plus/extensions/num_exten.dart';
 import 'package:dentist_india_plus/extensions/text_exten.dart';
 import 'package:dentist_india_plus/responsive/size_responsive.dart';
 import 'package:dentist_india_plus/widgets/bottomsheet_close.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../responsive/text_responsive.dart';
 
 class ProfileTab extends StatelessWidget {
   const ProfileTab({super.key});
+
+  String get aboutUsText =>
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. consectetur adipiscing elit. Nunc vulputate libero et velit interdum Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. consectetur adipi"
+          .substring(0, 220);
 
   @override
   Widget build(BuildContext context) {
@@ -28,43 +32,44 @@ class ProfileTab extends StatelessWidget {
             SizedBox(
               height: SizeResponsive.get(context, 40),
               child: TabBar(
-                  padding: EdgeInsets.zero,
-                  tabAlignment: TabAlignment.start,
-                  isScrollable: true,
-                  indicatorPadding: EdgeInsets.zero,
-                  labelStyle: TextStyle(
-                      color: const Color(0xFF2B275A),
-                      fontSize: height > 700
-                          ? 18
-                          : TextResponsive.getResponsiveFontSize(context, 16),
-                      fontFamily: "Kumbhsans",
-                      fontWeight: FontWeight.w700),
-                  indicatorSize: TabBarIndicatorSize.tab,
-                  // indicatorColor: Color(0xFFFF8412),
+                padding: EdgeInsets.zero,
+                tabAlignment: TabAlignment.start,
+                isScrollable: true,
+                indicatorPadding: EdgeInsets.zero,
+                labelStyle: TextStyle(
+                    color: const Color(0xFF2B275A),
+                    fontSize: height > 700
+                        ? 18
+                        : TextResponsive.getResponsiveFontSize(context, 20),
+                    fontFamily: "Kumbhsans",
+                    fontWeight: FontWeight.w700),
+                indicatorSize: TabBarIndicatorSize.tab,
+                // indicatorColor: Color(0xFFFF8412),
 
-                  dividerColor: Colors.transparent,
-                  indicatorWeight: 0,
-                  indicator: const UnderlineTabIndicator(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    borderSide:
-                        BorderSide(width: 3.0, color: Color(0xFFFF8412)),
-                    insets: EdgeInsets.symmetric(horizontal: 16.0),
-                  ),
-                  onTap: (v) {
-                    indexNotifier.value = v;
-                  },
-                  unselectedLabelStyle: TextStyle(
-                      color: const Color(0x332B275A),
-                      fontSize: height > 700
-                          ? 18
-                          : TextResponsive.getResponsiveFontSize(context, 16),
-                      fontFamily: "Kumbhsans",
-                      fontWeight: FontWeight.w500),
-                  tabs: const [
-                    Tab(text: "About"),
-                    Tab(text: "Education"),
-                    Tab(text: "Specialization")
-                  ]),
+                dividerColor: Colors.transparent,
+                indicatorWeight: 0,
+                indicator: const UnderlineTabIndicator(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  borderSide: BorderSide(width: 3.0, color: Color(0xFFFF8412)),
+                  insets: EdgeInsets.symmetric(horizontal: 16.0),
+                ),
+                onTap: (v) {
+                  indexNotifier.value = v;
+                },
+                unselectedLabelStyle: TextStyle(
+                  color: const Color(0x332B275A),
+                  fontSize: height > 700
+                      ? 18
+                      : TextResponsive.getResponsiveFontSize(context, 20),
+                  fontFamily: "Kumbhsans",
+                  fontWeight: FontWeight.w500,
+                ),
+                tabs: const [
+                  Tab(text: "About"),
+                  Tab(text: "Education"),
+                  Tab(text: "Specialization")
+                ],
+              ),
             ),
             Expanded(
               child: Container(
@@ -72,39 +77,55 @@ class ProfileTab extends StatelessWidget {
                 child: TabBarView(
                   physics: const NeverScrollableScrollPhysics(),
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        showDialog(
-                          context: context,
-                          builder: (_) => const AboutOverLayDialog(),
-                        );
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. consectetur adipiscing elit. Nunc vulputate libero et velit interdum. Class aptent Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. consectetur adipiscing elit. Nunc vulputate libero et velit interdum. Class aptent"
-                              .medium(
-                            fontSize: height > 700
-                                ? 16
-                                : TextResponsive.getResponsiveFontSize(
-                                    context, 10),
-                            color: const Color(0x802B275A),
+                    Column(
+                      children: [
+                        RichText(
+                          text: TextSpan(
+                            text: aboutUsText,
+                            style: TextStyle(
+                              fontSize: TextResponsive.getResponsiveFontSize(
+                                context,
+                                12,
+                              ),
+                              color: const Color(0x802B275A),
+                            ),
+                            children: [
+                              TextSpan(
+                                text: " more...",
+                                style: TextStyle(
+                                  color: const Color(0xFF2B275A),
+                                  fontSize:
+                                      TextResponsive.getResponsiveFontSize(
+                                    context,
+                                    12,
+                                  ),
+                                  fontWeight: FontWeight.w700,
+                                ),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    showDialog(
+                                      context: context,
+                                      builder: (_) =>
+                                          const AboutOverLayDialog(),
+                                    );
+                                  },
+                              )
+                            ],
                           ),
-                        ],
-                      ),
+                          maxLines: 4,
+                        ),
+                      ],
                     ),
                     "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. consectetur adipiscing elit. Nunc vulputate libero et velit interdum. Class aptent"
                         .medium(
-                      fontSize: height > 700
-                          ? 16
-                          : TextResponsive.getResponsiveFontSize(context, 10),
+                      fontSize:
+                          TextResponsive.getResponsiveFontSize(context, 12),
                       color: const Color(0x802B275A),
                     ),
                     "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. consectetur adipiscing elit. Nunc vulputate libero et velit interdum. Class aptent"
                         .medium(
-                      fontSize: height > 700
-                          ? 16
-                          : TextResponsive.getResponsiveFontSize(context, 10),
+                      fontSize:
+                          TextResponsive.getResponsiveFontSize(context, 12),
                       color: const Color(0x802B275A),
                     )
                   ],
@@ -155,10 +176,9 @@ class _AboutOverLayDialogState extends State<AboutOverLayDialog> {
       contentPadding: EdgeInsets.zero,
       content: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-        child: Container(
+        child: SizedBox(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -198,7 +218,9 @@ class _AboutOverLayDialogState extends State<AboutOverLayDialog> {
                 height: 20,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
+                padding: EdgeInsets.symmetric(
+                  horizontal: TextResponsive.getResponsiveFontSize(context, 15),
+                ),
                 child: Text(
                   "Corem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus. Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Suspendisse quis arcu sem. Aenean feugiat ex eu vestibulum vestibulum.",
                   style: TextStyle(

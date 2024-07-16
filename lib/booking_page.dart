@@ -193,7 +193,12 @@ class _BookingPageState extends State<BookingPage>
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.18,
                       child: const Column(
-                        children: [ProfileHeader(), Spacer(), ProfileInfo()],
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          ProfileHeader(),
+                          Spacer(),
+                          ProfileInfo(),
+                        ],
                       ),
                     ),
                   );
@@ -421,16 +426,18 @@ class _BookingPageState extends State<BookingPage>
                   child: Container(
                     padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                     decoration: const BoxDecoration(
-                        borderRadius:
-                            BorderRadius.vertical(top: Radius.circular(50)),
-                        color: Colors.white),
+                      borderRadius:
+                          BorderRadius.vertical(top: Radius.circular(50)),
+                      color: Colors.white,
+                    ),
                     height: MediaQuery.of(context).size.height * 0.7,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         const Padding(
-                            padding: EdgeInsets.only(right: 16, left: 40),
-                            child: ProfileAddress()),
+                          padding: EdgeInsets.only(right: 16, left: 40),
+                          child: ProfileAddress(),
+                        ),
                         8.vgap(),
                         const Expanded(
                           child: Padding(
@@ -497,10 +504,10 @@ class _BookingPageState extends State<BookingPage>
                                   },
                                   child: StyledButton(
                                     text: "SELECT",
-                                    secondary:
-                                        MediaQuery.of(context).size.height > 700
-                                            ? false
-                                            : true,
+                                    secondary: true,
+                                    // MediaQuery.of(context).size.height > 700
+                                    //     ? false
+                                    //     : true,
                                   ),
                                 ),
                               )

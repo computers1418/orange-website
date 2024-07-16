@@ -10,7 +10,7 @@ class Reviews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ScrollController scrollController = ScrollController(
-      initialScrollOffset: MediaQuery.of(context).size.width-100);
+        initialScrollOffset: MediaQuery.of(context).size.width - 100);
 
     var height = MediaQuery.of(context).size.height;
 
@@ -18,8 +18,14 @@ class Reviews extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 20),
-          child: "Client Reviews".extraBold(color: const Color(0xFF2B275A,), fontSize: height>700 ? 18 :  TextResponsive.getResponsiveFontSize(context, 16))),
+            padding: const EdgeInsets.only(left: 20),
+            child: "Client Reviews".extraBold(
+                color: const Color(
+                  0xFF2B275A,
+                ),
+                fontSize: height > 700
+                    ? 18
+                    : TextResponsive.getResponsiveFontSize(context, 16))),
         8.vgap(),
         Expanded(
           child: ListView.builder(
@@ -28,41 +34,87 @@ class Reviews extends StatelessWidget {
             controller: scrollController,
             scrollDirection: Axis.horizontal,
             itemCount: 3,
-            
-            itemBuilder: (_, idx){
-
-              bool isBlue = idx%2==0;
+            itemBuilder: (_, idx) {
+              bool isBlue = idx % 2 == 0;
 
               return Container(
-                width: MediaQuery.of(context).size.width-100,
+                width: MediaQuery.of(context).size.width - 100,
                 margin: const EdgeInsets.only(right: 6),
-                padding: EdgeInsets.all(height>700 ? 16 : 8),
+                padding: EdgeInsets.all(height > 700 ? 16 : 8),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(height>700 ? 24 : 16),
-                  color: isBlue ? const Color(0xFF2B275A): const Color(0xFFFF8412)
-                ),
+                    borderRadius: BorderRadius.circular(height > 700 ? 24 : 16),
+                    color: isBlue
+                        ? const Color(0xFF2B275A)
+                        : const Color(0xFFFF8412)),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    "Braces as an adult? Doc Steve transformed my snaggletooth grin into a smile I can't stop showing off! Friendly clinic, clear braces, 18 months - now I'm beaming with confidence. Thank you, Dr. Steve! (P.S. My cat is adjusting.)".medium(fontSize: height>700 ? 13 : TextResponsive.getResponsiveFontSize(context, 10), alignCenter: true, color: Colors.white),
+                    RichText(
+                      text: TextSpan(
+                        text: "Braces as an adult? ",
+                        style: TextStyle(
+                          fontFamily: "Kumbhsans",
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white,
+                          fontSize: height > 700
+                              ? 12
+                              : TextResponsive.getResponsiveFontSize(
+                                  context,
+                                  12,
+                                ),
+                        ),
+                        children: [
+                          TextSpan(
+                            text:
+                                "Doc Steve transformed my snaggletooth grin into a smile I can't stop showing off! Friendly clinic, clear braces, 18 months - now I'm beaming with confidence. Thank you, Dr. Steve! (P.S. My cat is adjusting.)",
+                            style: TextStyle(
+                              fontFamily: "Kumbhsans",
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white,
+                              fontSize: height > 700
+                                  ? 12
+                                  : TextResponsive.getResponsiveFontSize(
+                                      context,
+                                      12,
+                                    ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                     Row(
                       children: [
-                         CircleAvatar(
+                        CircleAvatar(
                           radius: SizeResponsive.get(context, 13),
-                          backgroundImage: const AssetImage("res/images/avatar.png"),
+                          backgroundImage:
+                              const AssetImage("res/images/avatar.png"),
                         ),
                         8.hgap(),
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-          
-                              "Peter Thomson".medium(fontSize: height>700 ? 17 : TextResponsive.getResponsiveFontSize(context, 12), color: Colors.white),
-                              "Patients".medium(fontSize: height>700 ? 11 : TextResponsive.getResponsiveFontSize(context, 7))
+                              "Peter Thomson".medium(
+                                  fontSize: height > 700
+                                      ? 10
+                                      : TextResponsive.getResponsiveFontSize(
+                                          context,
+                                          10,
+                                        ),
+                                  color: Colors.white),
+                              "Patients".medium(
+                                fontSize: height > 700
+                                    ? 6
+                                    : TextResponsive.getResponsiveFontSize(
+                                        context, 6),
+                              )
                             ],
                           ),
                         ),
-                        Image.asset("res/icons/quotes.png", width: SizeResponsive.get(context, 20), )
+                        Image.asset(
+                          "res/icons/quotes.png",
+                          width: SizeResponsive.get(context, 20),
+                        )
                       ],
                     )
                   ],

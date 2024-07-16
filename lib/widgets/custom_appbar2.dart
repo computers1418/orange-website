@@ -33,8 +33,8 @@ class CustomAppBar2 extends StatelessWidget {
                   GestureDetector(
                     onTap: () => onClose(),
                     child: Container(
-                      height: SizeResponsive.get(context, 30),
-                      width: SizeResponsive.get(context, 30),
+                      height: SizeResponsive.get(context, 35),
+                      width: SizeResponsive.get(context, 35),
                       decoration: BoxDecoration(
                         color: const Color(0x1AFFFFFF),
                         border: Border.all(color: const Color(0x0DFFFFFF)),
@@ -79,9 +79,9 @@ class CustomAppBar2 extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  const SizedBox(
-                    height: 4,
-                  ),
+                  // const SizedBox(
+                  //   height: 4,
+                  // ),
                   Row(
                     children: [
                       Text(
@@ -109,7 +109,7 @@ class CustomAppBar2 extends StatelessWidget {
               ),
               Image.asset(
                 'res/images/avatar.png',
-                width: 40,
+                width: SizeResponsive.get(context, 35),
               ),
               const SizedBox(
                 width: 4,

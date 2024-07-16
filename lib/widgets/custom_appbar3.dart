@@ -26,8 +26,8 @@ class CustomAppBar3 extends StatelessWidget {
                       Navigator.pop(context);
                     },
                     child: Container(
-                      height: SizeResponsive.get(context, 30),
-                      width: SizeResponsive.get(context, 30),
+                      height: SizeResponsive.get(context, 35),
+                      width: SizeResponsive.get(context, 35),
                       decoration: BoxDecoration(
                         color: const Color(0x1AFFFFFF),
                         border: Border.all(color: const Color(0x0DFFFFFF)),
