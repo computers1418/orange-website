@@ -1,7 +1,9 @@
 import 'package:dentist_india_plus/extensions/num_exten.dart';
 import 'package:dentist_india_plus/responsive/size_responsive.dart';
 import 'package:dentist_india_plus/responsive/text_responsive.dart';
+import 'package:dentist_india_plus/routes/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class DoctorItem extends StatelessWidget {
   final String name;
@@ -9,17 +11,24 @@ class DoctorItem extends StatelessWidget {
   final String location;
   final VoidCallback onClick;
   final VoidCallback onView;
-  const DoctorItem({super.key, required this.name, required this.designation, required this.location, required this.onClick, required this.onView});
+  const DoctorItem({
+    super.key,
+    required this.name,
+    required this.designation,
+    required this.location,
+    required this.onClick,
+    required this.onView,
+  });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: ()=>onView(),
+      onTap: () => onView(),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
-          color: const Color(0xFFF2F7FB)
+          color: const Color(0xFFF2F7FB),
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -28,76 +37,138 @@ class DoctorItem extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                Text(name, style: TextStyle(
-                  fontFamily: "KumbhsansSemiBold",
-                  color: const Color(0xFF2B275A),
-                  fontSize: TextResponsive.getResponsiveFontSize(context, 14),
-                  fontWeight: FontWeight.w800
-                )),
-                Row(
-                  children: [
-                    const ImageIcon(AssetImage("res/icons/icon_loc.png"), size: 8, color: Color(0xFFFF8412),),
-                    const SizedBox(width: 2,),
-                    Text("$location, New Delhi.", style: TextStyle(
-                      fontFamily: "Kumbhsans",
-                      color: const Color(0xFFFF8412),
-                      fontSize: TextResponsive.getResponsiveFontSize(context, 9),
-                      fontWeight: FontWeight.w500
-                    ))
-                  ],
-                ),
-                const SizedBox(height: 4,),
-                Row(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                      
-                      decoration: const BoxDecoration(
-                        color: Color(0xFF2B275A),
-                        borderRadius: BorderRadius.all(Radius.circular(16 ))
-                      ),
-                      child: Row(
-                        children: [
-                          Text("Profile / Address", style: TextStyle(
-                            fontFamily: "Kumbhsans",
-                            color: const Color(0xFFFFFFFF),
-                            fontSize: TextResponsive.getResponsiveFontSize(context, 9),
-                            fontWeight: FontWeight.w800
-                          )),
-                          const SizedBox(width: 2,),
-                          const Icon(Icons.arrow_forward, color: Colors.white, size: 12,)
-                        ],
-                      ),
+                  Text(
+                    name,
+                    style: TextStyle(
+                      fontFamily: "KumbhsansSemiBold",
+                      color: const Color(0xFF2B275A),
+                      fontSize:
+                          TextResponsive.getResponsiveFontSize(context, 14),
+                      fontWeight: FontWeight.w800,
                     ),
-                  ],
-                )
+                  ),
+                  Row(
+                    children: [
+                      const ImageIcon(
+                        AssetImage("res/icons/icon_loc.png"),
+                        size: 8,
+                        color: Color(0xFFFF8412),
+                      ),
+                      const SizedBox(
+                        width: 2,
+                      ),
+                      Text(
+                        "$location, New Delhi.",
+                        style: TextStyle(
+                          fontFamily: "Kumbhsans",
+                          color: const Color(0xFFFF8412),
+                          fontSize:
+                              TextResponsive.getResponsiveFontSize(context, 9),
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 4,
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 4, horizontal: 8),
+                        decoration: const BoxDecoration(
+                          color: Color(0xFF2B275A),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(16),
+                          ),
+                        ),
+                        child: Row(
+                          children: [
+                            Text(
+                              "Profile / Address",
+                              style: TextStyle(
+                                fontFamily: "Kumbhsans",
+                                color: const Color(0xFFFFFFFF),
+                                fontSize: TextResponsive.getResponsiveFontSize(
+                                    context, 9),
+                                fontWeight: FontWeight.w800,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 2,
+                            ),
+                            const Icon(
+                              Icons.arrow_forward,
+                              color: Colors.white,
+                              size: 12,
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  )
                 ],
               ),
             ),
             CircleAvatar(
               radius: SizeResponsive.get(context, 15),
               backgroundColor: const Color(0xFFFF8412),
-              child: Image.asset("res/images/call_icon.png", width: 30, height: 30,),
-            ),
-            8.hgap(),
-            GestureDetector(
-              onTap: onClick,
-              child: Container(
+              child: Image.asset(
+                "res/images/call_icon.png",
+                width: 30,
                 height: 30,
-                width: 76,
+              ),
+            ),
+            4.hgap(),
+            GestureDetector(
+              onTap: () {
+                Get.toNamed(Routes.location);
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 14,
+                  vertical: 9,
+                ),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: const Color(0xFFFF8412)
-                ),
-                child: Text("SELECT", style: TextStyle(
+                    borderRadius: BorderRadius.circular(30),
+                    color: const Color(0xFFFF8412)),
+                child: Text(
+                  "Map",
+                  style: TextStyle(
                     fontFamily: "KumbhsansSemiBold",
                     color: Colors.white,
                     fontSize: TextResponsive.getResponsiveFontSize(context, 12),
-                    fontWeight: FontWeight.w800
-                  )),
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
               ),
-            )
+            ),
+            4.hgap(),
+            GestureDetector(
+              onTap: onClick,
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 14,
+                  vertical: 9,
+                ),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: const Color(0xFFFF8412),
+                ),
+                child: Text(
+                  "SELECT",
+                  style: TextStyle(
+                    fontFamily: "KumbhsansSemiBold",
+                    color: Colors.white,
+                    fontSize: TextResponsive.getResponsiveFontSize(context, 12),
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

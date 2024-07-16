@@ -14,29 +14,39 @@ class PaymentTop extends StatelessWidget {
     return Column(
       children: [
         CustomAppBar2(
-          onClose: (){},
-          onMenuClick: (){
+          onClose: () {
+            Navigator.of(context).pop();
+          },
+          
+          onMenuClick: () {
             showDialog(
-              context: context, 
+              context: context,
               // isScrollControlled: true,
               // backgroundColor: Colors.transparent,
-              builder: (_){
+              builder: (_) {
                 return const DrawerDialog();
-                
-              });
+              },
+            );
           },
         ),
-        Visibility(visible: height>=800, child: const SizedBox(height: 20,)),
+        Visibility(
+            visible: height >= 800,
+            child: const SizedBox(
+              height: 20,
+            )),
         const PaymentTypes(),
-        Visibility(visible: height>=800, child: const SizedBox(height: 20,)),
+        Visibility(
+            visible: height >= 800,
+            child: const SizedBox(
+              height: 20,
+            )),
         Container(
-          height: SizeResponsive.get(context, height>700 ? 160: 90),
+          height: SizeResponsive.get(context, height > 700 ? 160 : 90),
           margin: const EdgeInsets.fromLTRB(30, 16, 30, 0),
           decoration: BoxDecoration(
-            color: const Color(0x33FFFFFF),
-            borderRadius: const BorderRadius.all(Radius.circular(35)),
-            border: Border.all(color: const Color(0x1AFFFFFF))
-          ),
+              color: const Color(0x33FFFFFF),
+              borderRadius: const BorderRadius.all(Radius.circular(35)),
+              border: Border.all(color: const Color(0x1AFFFFFF))),
         ),
       ],
     );

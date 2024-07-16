@@ -16,38 +16,50 @@ class StyledButton extends StatelessWidget {
         children: [
           Container(
             width: 180,
-            height: secondary ? SizeResponsive.get(context, 45) : SizeResponsive.get(context, 60),
+            height: secondary
+                ? SizeResponsive.get(context, 45)
+                : SizeResponsive.get(context, 60),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(100),
-              boxShadow: [
-                BoxShadow(
-                  color: secondary ? const Color(0xFFFF8412): const Color(0xFF2B275A),
-                  blurRadius: 30
-                )
-              ]
-            ), 
+                borderRadius: BorderRadius.circular(100),
+                boxShadow: [
+                  BoxShadow(
+                      color: secondary
+                          ? const Color(0xFFFF8412)
+                          : const Color(0xFF2B275A),
+                      blurRadius: 30)
+                ]),
           ),
-      
           Container(
-            width: 200,
-            height: secondary ? SizeResponsive.get(context, 45) : SizeResponsive.get(context, 60),
+            // width: 200,
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            constraints: const BoxConstraints(
+              maxWidth: 250,
+            ),
+            height: secondary
+                ? SizeResponsive.get(context, 45)
+                : SizeResponsive.get(context, 60),
             margin: const EdgeInsets.only(bottom: 10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(35),
-              color: secondary ? const Color(0xFFFF8412): const Color(0xFF2B275A),
+              color:
+                  secondary ? const Color(0xFFFF8412) : const Color(0xFF2B275A),
               image: const DecorationImage(
-                image: AssetImage("res/images/star_frame.png"), fit: BoxFit.cover)
+                image: AssetImage("res/images/star_frame.png"),
+              ),
             ),
             alignment: Alignment.center,
             child: Stack(
               alignment: Alignment.center,
               children: [
-                Text(text ?? "Quick Booking", style: TextStyle(
-                  fontFamily: "Kumbhsans",
-                  color: const Color(0xFFFFFFFF),
-                  fontSize: TextResponsive.getResponsiveFontSize(context, 18),
-                  fontWeight: FontWeight.w800
-                )),
+                Text(
+                  text ?? "Quick Booking",
+                  style: TextStyle(
+                    fontFamily: "Kumbhsans",
+                    color: const Color(0xFFFFFFFF),
+                    fontSize: TextResponsive.getResponsiveFontSize(context, 18),
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
                 // Align(
                 //   alignment: Alignment.centerRight,
                 //   child: Padding(
@@ -56,8 +68,6 @@ class StyledButton extends StatelessWidget {
               ],
             ),
           ),
-      
-      
         ],
       ),
     );
