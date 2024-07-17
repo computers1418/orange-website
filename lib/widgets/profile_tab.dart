@@ -6,7 +6,6 @@ import 'package:dentist_india_plus/responsive/size_responsive.dart';
 import 'package:dentist_india_plus/widgets/bottomsheet_close.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 
 import '../responsive/text_responsive.dart';
 

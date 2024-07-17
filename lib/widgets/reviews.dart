@@ -42,10 +42,11 @@ class Reviews extends StatelessWidget {
                 margin: const EdgeInsets.only(right: 6),
                 padding: EdgeInsets.all(height > 700 ? 16 : 8),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(height > 700 ? 24 : 16),
-                    color: isBlue
-                        ? const Color(0xFF2B275A)
-                        : const Color(0xFFFF8412)),
+                  borderRadius: BorderRadius.circular(height > 700 ? 24 : 16),
+                  color: isBlue
+                      ? const Color(0xFF2B275A)
+                      : const Color(0xFFFF8412),
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -56,12 +57,10 @@ class Reviews extends StatelessWidget {
                           fontFamily: "Kumbhsans",
                           fontWeight: FontWeight.w700,
                           color: Colors.white,
-                          fontSize: height > 700
-                              ? 12
-                              : TextResponsive.getResponsiveFontSize(
-                                  context,
-                                  12,
-                                ),
+                          fontSize: TextResponsive.getResponsiveFontSize(
+                            context,
+                            12,
+                          ),
                         ),
                         children: [
                           TextSpan(
@@ -71,12 +70,10 @@ class Reviews extends StatelessWidget {
                               fontFamily: "Kumbhsans",
                               fontWeight: FontWeight.w400,
                               color: Colors.white,
-                              fontSize: height > 700
-                                  ? 12
-                                  : TextResponsive.getResponsiveFontSize(
-                                      context,
-                                      12,
-                                    ),
+                              fontSize: TextResponsive.getResponsiveFontSize(
+                                context,
+                                12,
+                              ),
                             ),
                           ),
                         ],

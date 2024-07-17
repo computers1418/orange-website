@@ -16,10 +16,10 @@ class ProfileAddress extends StatelessWidget {
         color: const Color(0xFF2B275A),
         borderRadius: BorderRadius.circular(40),
       ),
-      padding: EdgeInsets.symmetric(
-        horizontal: SizeResponsive.get(context, 12),
-        vertical: SizeResponsive.get(context, 4),
-      ),
+      // padding: EdgeInsets.symmetric(
+      //   horizontal: SizeResponsive.get(context, 12),
+      //   vertical: SizeResponsive.get(context, 2),
+      // ),
       // height: SizeResponsive.get(context, 65),
       child: Row(
         children: [
@@ -45,12 +45,12 @@ class ProfileAddress extends StatelessWidget {
                 3.vgap(),
                 "12/2, Mathura Road, Sector 37, Faridabad - Delhi".medium(
                     fontSize: height > 700
-                        ? 12
+                        ? 10
                         : TextResponsive.getResponsiveFontSize(context, 10))
               ],
             ),
           ),
-          20.hgap(),
+          // 10.hgap(),
           CircleAvatar(
             radius: SizeResponsive.get(context, 16),
             backgroundColor: const Color(0xFFFF8412),

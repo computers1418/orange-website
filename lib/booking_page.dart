@@ -446,7 +446,7 @@ class _BookingPageState extends State<BookingPage>
                           ),
                         ),
                         const Expanded(child: Reviews()),
-                        26.vgap(),
+                        24.vgap(),
                         Padding(
                           padding: const EdgeInsets.only(right: 16, left: 16),
                           child: Row(
@@ -504,10 +504,10 @@ class _BookingPageState extends State<BookingPage>
                                   },
                                   child: StyledButton(
                                     text: "SELECT",
-                                    secondary: true,
-                                    // MediaQuery.of(context).size.height > 700
-                                    //     ? false
-                                    //     : true,
+                                    secondary:
+                                        MediaQuery.of(context).size.height > 700
+                                            ? false
+                                            : true,
                                   ),
                                 ),
                               )
