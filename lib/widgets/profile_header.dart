@@ -10,12 +10,13 @@ class ProfileHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(
-        left: SizeResponsive.getHeightverse(context, 30),
-        right: SizeResponsive.getHeightverse(context, 25),
-        top: SizeResponsive.getHeightverse(context, 6),
-        bottom: SizeResponsive.getHeightverse(context, 6),
-      ),
+      // padding: EdgeInsets.only(
+      //   left: SizeResponsive.getHeightverse(context, 40),
+      //   right: SizeResponsive.getHeightverse(context, 25),
+      //   top: SizeResponsive.getHeightverse(context, 6),
+      //   bottom: SizeResponsive.getHeightverse(context, 6),
+      // ),
+      padding: const EdgeInsets.only(left: 33, top: 2, bottom: 2, right: 25),
       child: Row(
         children: [
           CircleAvatar(

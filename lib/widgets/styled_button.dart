@@ -34,7 +34,7 @@ class StyledButton extends StatelessWidget {
           Container(
             padding: const EdgeInsets.only(left: 25, right: 10),
             constraints: const BoxConstraints(
-              maxWidth: 250,
+              maxWidth: 200,
             ),
             height: secondary
                 ? SizeResponsive.get(context, 45)
@@ -62,7 +62,9 @@ class StyledButton extends StatelessWidget {
                 ),
                 const SizedBox(width: 5),
                 ImageIcon(
-                  const AssetImage("res/icons/star.png"),
+                  secondary
+                      ? const AssetImage("res/icons/star.png")
+                      : const AssetImage("res/icons/star2.png"),
                   size: 11,
                   color: secondary ? Colors.white : const Color(0xFFFF8412),
                 ),
