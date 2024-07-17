@@ -14,7 +14,7 @@ class ProfileTab extends StatelessWidget {
 
   String get aboutUsText =>
       "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. consectetur adipiscing elit. Nunc vulputate libero et velit interdum Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. consectetur adipi"
-          .substring(0, 220);
+          .substring(0, 300);
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +112,7 @@ class ProfileTab extends StatelessWidget {
                               )
                             ],
                           ),
-                          maxLines: 4,
+                          maxLines: 5,
                         ),
                       ],
                     ),
@@ -194,7 +194,7 @@ class _AboutOverLayDialogState extends State<AboutOverLayDialog> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                120.vgap(),
+                100.vgap(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

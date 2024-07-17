@@ -18,15 +18,24 @@ class ProfileInfo extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const ImageIcon(AssetImage("res/icons/group.png"), size: 16, color: Color(0xFFFFFFFF)),
+                const ImageIcon(
+                  AssetImage("res/icons/group.png"),
+                  size: 16,
+                  color: Color(0xFFFFFFFF),
+                ),
                 4.hgap(),
-                Text("10K\nPatients", style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w800,
-                  fontSize: height>700 ? 13 :TextResponsive.getResponsiveFontSize(context, 11),
-                  height: 1.2,
-                  fontFamily: "Kumbhsans"
-                )),
+                Text(
+                  "10K\nPatients",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w800,
+                    fontSize: height > 700
+                        ? 13
+                        : TextResponsive.getResponsiveFontSize(context, 11),
+                    height: 1.2,
+                    fontFamily: "Kumbhsans",
+                  ),
+                ),
               ],
             ),
           ),
@@ -35,15 +44,24 @@ class ProfileInfo extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const ImageIcon(AssetImage("res/icons/medical.png"), size: 16, color: Color(0xFFFFFFFF)),
+                const ImageIcon(
+                  AssetImage("res/icons/medical.png"),
+                  size: 16,
+                  color: Color(0xFFFFFFFF),
+                ),
                 4.hgap(),
-                Text("8+\nyear Exp", style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w800,
-                  fontSize: height>700 ? 13 :TextResponsive.getResponsiveFontSize(context, 11),
-                  height: 1.2,
-                  fontFamily: "Kumbhsans"
-                )),
+                Text(
+                  "8+\nyear Exp",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w800,
+                    fontSize: height > 700
+                        ? 13
+                        : TextResponsive.getResponsiveFontSize(context, 11),
+                    height: 1.2,
+                    fontFamily: "Kumbhsans",
+                  ),
+                ),
               ],
             ),
           ),
@@ -52,15 +70,24 @@ class ProfileInfo extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const ImageIcon(AssetImage("res/icons/message.png"), size: 16, color: Color(0xFFFFFFFF)),
+                const ImageIcon(
+                  AssetImage("res/icons/message.png"),
+                  size: 16,
+                  color: Color(0xFFFFFFFF),
+                ),
                 4.hgap(),
-                Text("5K\nReviews", style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w800,
-                  fontSize: height>700 ? 13 :TextResponsive.getResponsiveFontSize(context, 11),
-                  height: 1.2,
-                  fontFamily: "Kumbhsans"
-                )),
+                Text(
+                  "5K\nReviews",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w800,
+                    fontSize: height > 700
+                        ? 13
+                        : TextResponsive.getResponsiveFontSize(context, 11),
+                    height: 1.2,
+                    fontFamily: "Kumbhsans",
+                  ),
+                ),
               ],
             ),
           )

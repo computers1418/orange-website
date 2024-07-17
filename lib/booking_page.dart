@@ -5,6 +5,7 @@ import 'package:dentist_india_plus/utils.dart';
 import 'package:dentist_india_plus/widgets/booking_form.dart';
 import 'package:dentist_india_plus/widgets/doctor_instruction_card.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pinput/pinput.dart';
@@ -37,6 +38,7 @@ class _BookingPageState extends State<BookingPage>
   ValueNotifier type = ValueNotifier(1);
   ValueNotifier selectedDoctor = ValueNotifier(null);
   ValueNotifier showDoctor = ValueNotifier(false);
+  ValueNotifier<bool> isSelectClicked = ValueNotifier(false);
 
   late TextEditingController doctor;
   late TextEditingController dateTime;
@@ -440,12 +442,16 @@ class _BookingPageState extends State<BookingPage>
                         ),
                         8.vgap(),
                         const Expanded(
+                          flex: 6,
                           child: Padding(
                             padding: EdgeInsets.only(left: 20),
                             child: ProfileTab(),
                           ),
                         ),
-                        const Expanded(child: Reviews()),
+                        const Expanded(
+                          flex: 7,
+                          child: Reviews(),
+                        ),
                         24.vgap(),
                         Padding(
                           padding: const EdgeInsets.only(right: 16, left: 16),
@@ -485,31 +491,39 @@ class _BookingPageState extends State<BookingPage>
                               ),
                               16.hgap(),
                               Expanded(
-                                child: GestureDetector(
-                                  onTap: () {
-                                    _slidercontroller.reverse();
-                                    Future.delayed(
-                                        const Duration(milliseconds: 1300), () {
-                                      controller.animateToPage(1,
-                                          duration:
-                                              const Duration(milliseconds: 400),
-                                          curve: Curves.linear);
-                                    });
-                                    _controller.forward();
-                                    selectedDoctor.value = doctors.first;
-                                    doctor.setText(
-                                      selectedDoctor.value!['name'],
-                                    );
-                                    showProfile.value = false;
-                                  },
-                                  child: StyledButton(
-                                    text: "SELECT",
-                                    secondary:
-                                        MediaQuery.of(context).size.height > 700
-                                            ? false
-                                            : true,
-                                  ),
-                                ),
+                                child: ValueListenableBuilder(
+                                    valueListenable: isSelectClicked,
+                                    builder: (context, val, child) {
+                                      return GestureDetector(
+                                        onTap: () {
+                                          isSelectClicked.value = true;
+                                          _slidercontroller.reverse();
+                                          Future.delayed(
+                                            const Duration(milliseconds: 1300),
+                                            () {
+                                              controller.animateToPage(1,
+                                                  duration: const Duration(
+                                                      milliseconds: 400),
+                                                  curve: Curves.linear);
+                                              isSelectClicked.value = false;
+                                            },
+                                          );
+                                          _controller.forward();
+                                          selectedDoctor.value = doctors.first;
+                                          doctor.setText(
+                                            selectedDoctor.value!['name'],
+                                          );
+                                          showProfile.value = false;
+                                        },
+                                        child: StyledButton(
+                                          text: "SELECT",
+                                          secondary: isSelectClicked.value,
+                                          // MediaQuery.of(context).size.height > 700
+                                          //     ? false
+                                          //     : true,
+                                        ),
+                                      );
+                                    }),
                               )
                             ],
                           ),
