@@ -10,7 +10,7 @@ class ProfileHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: SizeResponsive.getHeightverse(context, 20), vertical: SizeResponsive.getHeightverse(context, 6)),
+      padding: EdgeInsets.symmetric(horizontal: SizeResponsive.getHeightverse(context, 25), vertical: SizeResponsive.getHeightverse(context, 6)),
       child: Row(
         children: [
       

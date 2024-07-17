@@ -23,10 +23,11 @@ class StyledButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(100),
               boxShadow: [
                 BoxShadow(
-                    color: secondary
-                        ? const Color(0xFFFF8412)
-                        : const Color(0xFF2B275A),
-                    blurRadius: 30)
+                  color: secondary
+                      ? const Color(0xFFFF8412)
+                      : const Color(0xFF2B275A),
+                  blurRadius: 30,
+                ),
               ],
             ),
           ),
@@ -44,19 +45,12 @@ class StyledButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(35),
               color:
                   secondary ? const Color(0xFFFF8412) : const Color(0xFF2B275A),
-              image: DecorationImage(
-                image: const AssetImage(
-                  "res/images/star_frame.png",
-                ),
-                colorFilter: ColorFilter.mode(
-                  secondary ? const Color(0xFFFF8412) : const Color(0xFF2B275A),
-                  BlendMode.srcATop,
-                ),
-              ),
             ),
             alignment: Alignment.center,
-            child: Stack(
-              alignment: Alignment.center,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              // alignment: Alignment.center,
               children: [
                 Text(
                   text ?? "Quick Booking",
@@ -67,11 +61,23 @@ class StyledButton extends StatelessWidget {
                     fontWeight: FontWeight.w800,
                   ),
                 ),
+                const SizedBox(width: 10),
+                ImageIcon(
+                  const AssetImage("res/icons/star.png"),
+                  size: 11,
+                  color: secondary ? Colors.white : const Color(0xFFFF8412),
+                ),
                 // Align(
-                //   alignment: Alignment.centerRight,
+                //   alignment: Alignment.topRight,
                 //   child: Padding(
                 //     padding: const EdgeInsets.only(right: 26, bottom: 14),
-                //     child: ImageIcon(const AssetImage("res/icons/blink.png"), size: 11, color: secondary ? Colors.white: const Color(0xFFFF8412),)))
+                //     child: ImageIcon(
+                //       const AssetImage("res/icons/star.png"),
+                //       size: 11,
+                //       color: secondary ? Colors.white : const Color(0xFFFF8412),
+                //     ),
+                //   ),
+                // )
               ],
             ),
           ),

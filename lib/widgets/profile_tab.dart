@@ -39,8 +39,8 @@ class ProfileTab extends StatelessWidget {
                 labelStyle: TextStyle(
                     color: const Color(0xFF2B275A),
                     fontSize: height > 700
-                        ? 18
-                        : TextResponsive.getResponsiveFontSize(context, 20),
+                        ? 16
+                        : TextResponsive.getResponsiveFontSize(context, 18),
                     fontFamily: "Kumbhsans",
                     fontWeight: FontWeight.w700),
                 indicatorSize: TabBarIndicatorSize.tab,
@@ -59,8 +59,8 @@ class ProfileTab extends StatelessWidget {
                 unselectedLabelStyle: TextStyle(
                   color: const Color(0x332B275A),
                   fontSize: height > 700
-                      ? 18
-                      : TextResponsive.getResponsiveFontSize(context, 20),
+                      ? 16
+                      : TextResponsive.getResponsiveFontSize(context, 18),
                   fontFamily: "Kumbhsans",
                   fontWeight: FontWeight.w500,
                 ),
