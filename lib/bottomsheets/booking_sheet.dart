@@ -133,7 +133,9 @@ class BookingSheet extends StatelessWidget {
                                     times[idx],
                                     style: TextStyle(
                                       fontFamily: "KumbhsansSemiBold",
-                                      color: const Color(0xFF2B275A),
+                                      color: selected.value == idx
+                                          ? Colors.white
+                                          : const Color(0xFF2B275A),
                                       fontSize:
                                           TextResponsive.getResponsiveFontSize(
                                               context, 12),
