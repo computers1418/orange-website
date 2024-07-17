@@ -6,6 +6,7 @@ import 'package:dentist_india_plus/responsive/size_responsive.dart';
 import 'package:dentist_india_plus/widgets/bottomsheet_close.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 
 import '../responsive/text_responsive.dart';
 
@@ -174,69 +175,84 @@ class _AboutOverLayDialogState extends State<AboutOverLayDialog> {
       backgroundColor: Colors.transparent,
       surfaceTintColor: Colors.transparent,
       contentPadding: EdgeInsets.zero,
-      content: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              100.vgap(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const CircleAvatar(
-                    radius: 20,
-                    backgroundColor: Colors.grey,
-                    child: Icon(
-                      Icons.arrow_back,
-                      color: Color(0xff2B275A),
+      insetPadding: EdgeInsets.zero,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(0),
+      ),
+      content: Container(
+        decoration: BoxDecoration(
+          color: const Color(0xFF2B275A).withOpacity(0.7),
+        ),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            padding: EdgeInsets.symmetric(
+              horizontal: TextResponsive.getResponsiveFontSize(context, 25),
+            ),
+            color: Colors.transparent,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                120.vgap(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const CircleAvatar(
+                      radius: 20,
+                      backgroundColor: Colors.grey,
+                      child: Icon(
+                        Icons.arrow_back,
+                        color: Color(0xff2B275A),
+                      ),
                     ),
+                    Text(
+                      "ABOUT",
+                      style: TextStyle(
+                        fontFamily: "KumbhsansBold",
+                        fontWeight: FontWeight.w800,
+                        fontSize:
+                            TextResponsive.getResponsiveFontSize(context, 28),
+                        color: const Color(0xFFFFAD61),
+                      ),
+                    ),
+                    const CircleAvatar(
+                      radius: 20,
+                      backgroundColor: Colors.white,
+                      child: Icon(
+                        Icons.arrow_forward,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal:
+                        TextResponsive.getResponsiveFontSize(context, 15),
                   ),
-                  Text(
-                    "About",
+                  child: Text(
+                    "Corem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.\n\n Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Suspendisse quis arcu sem. Aenean feugiat ex eu vestibulum vestibulum.",
                     style: TextStyle(
-                      fontFamily: "KumbhsansBold",
-                      fontWeight: FontWeight.w800,
+                      color: Colors.white,
+                      fontFamily: "Kumbhsans",
                       fontSize:
-                          TextResponsive.getResponsiveFontSize(context, 28),
-                      color: const Color(0xFFFFAD61),
+                          TextResponsive.getResponsiveFontSize(context, 16),
+                      fontWeight: FontWeight.w300,
                     ),
+                    textAlign: TextAlign.center,
                   ),
-                  const CircleAvatar(
-                    radius: 20,
-                    backgroundColor: Colors.white,
-                    child: Icon(
-                      Icons.arrow_forward,
-                      color: Colors.black,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: TextResponsive.getResponsiveFontSize(context, 15),
                 ),
-                child: Text(
-                  "Corem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus. Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Suspendisse quis arcu sem. Aenean feugiat ex eu vestibulum vestibulum.",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: "Kumbhsans",
-                    fontSize: TextResponsive.getResponsiveFontSize(context, 16),
-                    fontWeight: FontWeight.w300,
-                  ),
-                  textAlign: TextAlign.center,
+                const SizedBox(
+                  height: 20,
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const BottomsheetClose(),
-            ],
+                const BottomsheetClose(),
+              ],
+            ),
           ),
         ),
       ),

@@ -17,8 +17,8 @@ class ProfileAddress extends StatelessWidget {
         borderRadius: BorderRadius.circular(40),
       ),
       padding: EdgeInsets.symmetric(
-        horizontal: SizeResponsive.get(context, 16),
-        vertical: SizeResponsive.get(context, 8),
+        horizontal: SizeResponsive.get(context, 12),
+        vertical: SizeResponsive.get(context, 4),
       ),
       // height: SizeResponsive.get(context, 65),
       child: Row(
