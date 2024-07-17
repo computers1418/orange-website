@@ -396,8 +396,13 @@ class _BookingPageState extends State<BookingPage>
                           scale: bottom.value,
                           alignment: Alignment.bottomCenter,
                           child: BookingForm(
-                            onSelected: () {
+                            onSelected: () async {
                               _topSheetController.forward();
+                              Future.delayed(const Duration(seconds: 6), () {
+                                if (showDoctor.value) {
+                                  _topSheetController.reverse();
+                                }
+                              });
                             },
                             dateTime: dateTime,
                             problem: problem,

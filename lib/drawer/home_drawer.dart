@@ -433,19 +433,23 @@ class _HomeDrawerState extends State<HomeDrawer> with TickerProviderStateMixin {
                               ),
                             ),
                             SizedBox(
-                              height: SizeResponsive.get(context, 18),
+                              height: SizeResponsive.get(context, 40),
                             ),
                             Row(
                               children: [
-                                Image.asset("res/images/playstore.png",
-                                    width: SizeResponsive.get(context, 60),
-                                    height: SizeResponsive.get(context, 26)),
+                                Image.asset(
+                                  "res/images/playstore.png",
+                                  width: SizeResponsive.get(context, 75),
+                                  height: SizeResponsive.get(context, 32),
+                                ),
                                 const SizedBox(
                                   width: 10,
                                 ),
-                                Image.asset("res/images/appstore.png",
-                                    width: SizeResponsive.get(context, 60),
-                                    height: SizeResponsive.get(context, 26))
+                                Image.asset(
+                                  "res/images/appstore.png",
+                                  width: SizeResponsive.get(context, 75),
+                                  height: SizeResponsive.get(context, 32),
+                                )
                               ],
                             ),
                             const SizedBox(

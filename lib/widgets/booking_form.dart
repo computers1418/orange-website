@@ -353,17 +353,19 @@ class BookingForm extends StatelessWidget {
           ),
         ),
         Positioned(
-            bottom: sheet,
-            right: 0,
-            left: 0,
-            child: GestureDetector(
-                onTap: () {
-                  bottomSheetController.reverse();
-                  showDoctor.value = false;
-                },
-                child: const DoctorCallSheet(
-                  name: 'Alex',
-                ))),
+          bottom: sheet,
+          right: 0,
+          left: 0,
+          child: GestureDetector(
+            onTap: () {
+              bottomSheetController.reverse();
+              showDoctor.value = false;
+            },
+            child: const DoctorCallSheet(
+              name: 'Alex',
+            ),
+          ),
+        ),
         const AppointmentType()
       ],
     );

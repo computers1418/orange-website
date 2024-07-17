@@ -1,3 +1,4 @@
+import 'package:dentist_india_plus/extensions%20copy/number_exten.dart';
 import 'package:dentist_india_plus/responsive/size_responsive.dart';
 import 'package:dentist_india_plus/responsive/text_responsive.dart';
 import 'package:flutter/material.dart';
@@ -20,9 +21,44 @@ class CustomAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Image.asset(
-            'res/images/logo_full_color.png',
-            width: 120,
+          Row(
+            children: [
+              if (onClose != null) ...[
+                Column(
+                  children: [
+                    4.h(),
+                    GestureDetector(
+                      onTap: () => onClose?.call(),
+                      child: Container(
+                        height: SizeResponsive.get(context, 35),
+                        width: SizeResponsive.get(context, 35),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFFF8412),
+                          border: Border.all(color: const Color(0x0DFFFFFF)),
+                          borderRadius: BorderRadius.circular(100),
+                          boxShadow: const [
+                            BoxShadow(blurRadius: 4, color: Color(0x1AFFFFFF))
+                          ],
+                        ),
+                        padding: const EdgeInsets.all(4),
+                        child: Icon(
+                          closeIcon ?? Icons.arrow_back,
+                          size: SizeResponsive.get(context, 18),
+                          color: const Color(0xFFFFFFFF),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  width: 8,
+                ),
+              ],
+              Image.asset(
+                'res/images/logo_full_color.png',
+                width: 120,
+              ),
+            ],
           ),
           Row(
             children: [
@@ -70,37 +106,11 @@ class CustomAppBar extends StatelessWidget {
               ),
               Image.asset(
                 'res/images/avatar.png',
-                width: 40,
+                width: SizeResponsive.get(context, 35),
               ),
               const SizedBox(
                 width: 4,
               ),
-              if (onClose != null) ...[
-                GestureDetector(
-                  onTap: () => onClose?.call(),
-                  child: Container(
-                    height: SizeResponsive.get(context, 35),
-                    width: SizeResponsive.get(context, 35),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFFF8412),
-                      border: Border.all(color: const Color(0x0DFFFFFF)),
-                      borderRadius: BorderRadius.circular(100),
-                      boxShadow: const [
-                        BoxShadow(blurRadius: 4, color: Color(0x1AFFFFFF))
-                      ],
-                    ),
-                    padding: const EdgeInsets.all(4),
-                    child: Icon(
-                      closeIcon ?? Icons.arrow_back,
-                      size: SizeResponsive.get(context, 18),
-                      color: const Color(0xFFFFFFFF),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  width: 6,
-                ),
-              ],
               GestureDetector(
                 onTap: () => onMenuClick(),
                 child: CircleAvatar(

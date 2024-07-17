@@ -15,10 +15,14 @@ class StyledButton extends StatelessWidget {
         alignment: Alignment.bottomCenter,
         children: [
           Container(
+            constraints: const BoxConstraints(
+              maxWidth: 200,
+              // maxHeight: 60,
+            ),
             width: 180,
-            height: secondary
-                ? SizeResponsive.get(context, 45)
-                : SizeResponsive.get(context, 60),
+            height: MediaQuery.of(context).size.height > 700
+                ? SizeResponsive.get(context, 60)
+                : SizeResponsive.get(context, 45),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(100),
               boxShadow: [
@@ -35,10 +39,11 @@ class StyledButton extends StatelessWidget {
             padding: const EdgeInsets.only(left: 25, right: 10),
             constraints: const BoxConstraints(
               maxWidth: 200,
+              // maxHeight: 60,
             ),
-            height: secondary
-                ? SizeResponsive.get(context, 45)
-                : SizeResponsive.get(context, 60),
+            height: MediaQuery.of(context).size.height > 700
+                ? SizeResponsive.get(context, 60)
+                : SizeResponsive.get(context, 45),
             margin: const EdgeInsets.only(bottom: 10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(35),
@@ -61,24 +66,12 @@ class StyledButton extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 5),
-                ImageIcon(
-                  secondary
-                      ? const AssetImage("res/icons/star.png")
-                      : const AssetImage("res/icons/star2.png"),
-                  size: 11,
+                Image.asset(
+                  secondary ? "res/icons/star.png" : "res/icons/star2.png",
+                  height: 11,
+                  width: 11,
                   color: secondary ? Colors.white : const Color(0xFFFF8412),
                 ),
-                // Align(
-                //   alignment: Alignment.topRight,
-                //   child: Padding(
-                //     padding: const EdgeInsets.only(right: 26, bottom: 14),
-                //     child: ImageIcon(
-                //       const AssetImage("res/icons/star.png"),
-                //       size: 11,
-                //       color: secondary ? Colors.white : const Color(0xFFFF8412),
-                //     ),
-                //   ),
-                // )
               ],
             ),
           ),

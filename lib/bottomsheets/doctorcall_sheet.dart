@@ -123,7 +123,7 @@ class DoctorCallSheet extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 80,
+            left: 60,
             child: GestureDetector(
               onTap: () => Get.toNamed(Routes.location),
               child: Image.asset(

@@ -76,7 +76,7 @@ class DoctorinstructionCard extends StatelessWidget {
                 Text(
                   'Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. consectetur adipiscing elit. Nunc vulputate libero et velit interdum.',
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.1),
+                    color: Colors.white.withOpacity(0.6),
                     fontWeight: FontWeight.w400,
                     fontFamily: "Kumbhsans",
                     fontSize: 10,
