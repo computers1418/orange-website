@@ -46,9 +46,11 @@ class ProfileHeader extends StatelessWidget {
               SizeResponsive.get(context, 14).toInt().vgap(),
               CircleAvatar(
                 radius: SizeResponsive.get(context, 16),
-                child: ImageIcon(const AssetImage("res/icons/phone.png"),
-                    size: SizeResponsive.getHeightverse(context, 18),
-                    color: const Color(0xFFFF8412)),
+                child: ImageIcon(
+                  const AssetImage("res/icons/phone.png"),
+                  size: SizeResponsive.getHeightverse(context, 18),
+                  color: const Color(0xFFFF8412),
+                ),
               )
             ],
           )

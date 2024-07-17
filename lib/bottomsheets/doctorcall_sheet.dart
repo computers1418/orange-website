@@ -1,4 +1,3 @@
-import 'package:dentist_india_plus/extensions%20copy/context_exten.dart';
 import 'package:dentist_india_plus/responsive/size_responsive.dart';
 import 'package:dentist_india_plus/responsive/text_responsive.dart';
 import 'package:dentist_india_plus/routes/app_routes.dart';
@@ -86,29 +85,36 @@ class DoctorCallSheet extends StatelessWidget {
                     height: SizeResponsive.get(context, 45),
                     margin: const EdgeInsets.only(bottom: 0),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(35),
-                        color: const Color(0xFFFF8412)),
+                      borderRadius: BorderRadius.circular(35),
+                      color: const Color(0xFFFF8412),
+                    ),
                     alignment: Alignment.center,
                     child: Stack(
                       alignment: Alignment.center,
                       children: [
-                        const Text("Book Now",
-                            style: TextStyle(
-                                fontFamily: "Kumbhsans",
-                                color: Color(0xFFFFFFFF),
-                                fontSize: 14,
-                                fontWeight: FontWeight.w700)),
+                        const Text(
+                          "Book Now",
+                          style: TextStyle(
+                            fontFamily: "Kumbhsans",
+                            color: Color(0xFFFFFFFF),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
                         Align(
-                            alignment: Alignment.centerRight,
-                            child: Padding(
-                                padding: EdgeInsets.only(
-                                    right: SizeResponsive.get(context, 12),
-                                    bottom: 14),
-                                child: const ImageIcon(
-                                  AssetImage("res/icons/blink.png"),
-                                  size: 10,
-                                  color: Color(0xFFFFFFFF),
-                                )))
+                          alignment: Alignment.centerRight,
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                              right: SizeResponsive.get(context, 12),
+                              bottom: 14,
+                            ),
+                            child: const ImageIcon(
+                              AssetImage("res/icons/star.png"),
+                              size: 10,
+                              color: Color(0xFFFFFFFF),
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   ),

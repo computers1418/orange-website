@@ -5,7 +5,6 @@ import 'package:dentist_india_plus/drawer/drawer_dialog.dart';
 import 'package:dentist_india_plus/drawer/home_drawer.dart';
 import 'package:dentist_india_plus/extensions%20copy/context_exten.dart';
 import 'package:dentist_india_plus/responsive/size_responsive.dart';
-import 'package:dentist_india_plus/widgets/booking_main_side.dart';
 import 'package:dentist_india_plus/widgets/custom_appbar.dart';
 import 'package:dentist_india_plus/widgets/header.dart';
 import 'package:dentist_india_plus/widgets/home_badge.dart';

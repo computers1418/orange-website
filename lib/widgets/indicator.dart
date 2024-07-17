@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class Indicator extends StatelessWidget {
   final ValueNotifier notifier;
@@ -12,36 +10,31 @@ class Indicator extends StatelessWidget {
       height: 100,
       width: 6,
       child: Stack(
-        children: [ 
+        children: [
           Container(
             width: 6,
             height: 100,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: const Color(0x1AFFFFFF),
-              boxShadow: const [
-                BoxShadow(
-                  blurRadius: 20, color: Color(0x1AFFFFFF)
-                )
-              ]
-            ),
+                borderRadius: BorderRadius.circular(10),
+                color: const Color(0x1AFFFFFF),
+                boxShadow: const [
+                  BoxShadow(blurRadius: 20, color: Color(0x1AFFFFFF))
+                ]),
           ),
           ValueListenableBuilder(
-            valueListenable: notifier,
-            builder: (_, val, __) {
-              return Positioned(
-                bottom: val,
-                child: Container(
-                  width: 6,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.white
+              valueListenable: notifier,
+              builder: (_, val, __) {
+                return Positioned(
+                  bottom: val,
+                  child: Container(
+                    width: 6,
+                    height: 40,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white),
                   ),
-                ),
-              );
-            }
-          ),
+                );
+              }),
         ],
       ),
     );

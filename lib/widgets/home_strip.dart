@@ -5,8 +5,6 @@ class HomeStrip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Image.asset("res/images/home_strip.png"),
-    );
+    return Image.asset("res/images/home_strip.png");
   }
 }

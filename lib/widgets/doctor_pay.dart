@@ -3,10 +3,7 @@ import 'package:dentist_india_plus/responsive/text_responsive.dart';
 import 'package:dentist_india_plus/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'bottomsheet_city.dart';
 import 'confirmed_dialog.dart';
-import 'mail_dialog.dart';
 import 'number_dialog.dart';
 import 'otp_dialog.dart';
 
@@ -134,22 +131,27 @@ class DoctorPay extends StatelessWidget {
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  Text("Pay Cash",
-                      style: TextStyle(
-                          fontFamily: "Kumbhsans",
-                          color: const Color(0xFFFFFFFF),
-                          fontSize:
-                              TextResponsive.getResponsiveFontSize(context, 14),
-                          fontWeight: FontWeight.w700)),
+                  Text(
+                    "Pay Cash",
+                    style: TextStyle(
+                      fontFamily: "Kumbhsans",
+                      color: const Color(0xFFFFFFFF),
+                      fontSize:
+                          TextResponsive.getResponsiveFontSize(context, 14),
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
                   const Align(
-                      alignment: Alignment.centerRight,
-                      child: Padding(
-                          padding: EdgeInsets.only(right: 14, bottom: 14),
-                          child: ImageIcon(
-                            AssetImage("res/icons/blink.png"),
-                            size: 10,
-                            color: Color(0xFFFFFFFF),
-                          )))
+                    alignment: Alignment.centerRight,
+                    child: Padding(
+                      padding: EdgeInsets.only(right: 14, bottom: 14),
+                      child: ImageIcon(
+                        AssetImage("res/icons/star.png"),
+                        size: 10,
+                        color: Color(0xFFFFFFFF),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

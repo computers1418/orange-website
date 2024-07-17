@@ -3,9 +3,7 @@ import 'package:dentist_india_plus/extensions%20copy/context_exten.dart';
 import 'package:dentist_india_plus/extensions%20copy/number_exten.dart';
 import 'package:dentist_india_plus/extensions%20copy/string_exten.dart';
 import 'package:dentist_india_plus/routes/app_routes.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../../constants/assets_const.dart';
 import '../../widgets/custom_appbar3.dart';

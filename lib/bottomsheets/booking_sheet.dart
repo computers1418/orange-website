@@ -5,7 +5,6 @@ import 'package:dentist_india_plus/widgets/bottomsheet_header.dart';
 import 'package:dentist_india_plus/widgets/calendar_carousel.dart';
 import 'package:dentist_india_plus/widgets/notch.dart';
 import 'package:dentist_india_plus/widgets/styled_subtext.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/bottomsheet_close.dart';

@@ -1,10 +1,7 @@
-import 'package:dentist_india_plus/extensions%20copy/context_exten.dart';
 import 'package:dentist_india_plus/extensions%20copy/number_exten.dart';
 import 'package:dentist_india_plus/extensions%20copy/string_exten.dart';
 import 'package:dentist_india_plus/responsive/size_responsive.dart';
 import 'package:flutter/material.dart';
-
-import '../constants/assets_const.dart';
 
 class CustomAppBar3 extends StatelessWidget {
   const CustomAppBar3({super.key});
