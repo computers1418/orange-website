@@ -10,10 +10,15 @@ class VisaCard extends StatelessWidget {
     var height = MediaQuery.of(context).size.height;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16),
-      padding: EdgeInsets.fromLTRB(16, 10, 16, SizeResponsive.get(context, 20)),
+      padding: EdgeInsets.fromLTRB(16, 15, 16, SizeResponsive.get(context, 25)),
       decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(30)),
-        image: DecorationImage(image: AssetImage("res/images/pancard.png"), fit: BoxFit.fill)
+        borderRadius: BorderRadius.all(
+          Radius.circular(30),
+        ),
+        image: DecorationImage(
+          image: AssetImage("res/images/pancard.png"),
+          fit: BoxFit.fill,
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,15 +32,18 @@ class VisaCard extends StatelessWidget {
                   color: Color(0xFF2B275A),
                   borderRadius: BorderRadius.all(Radius.circular(40)),
                 ),
-                child: Text("MASTER CARD", style: TextStyle(
-                  fontFamily: "Kumbhsans",
-                  color: const Color(0xFFFFFFFF),
-                  fontSize: TextResponsive.getResponsiveFontSize(context, 12),
-                  height: 1,
-                  fontWeight: FontWeight.w800
-                )),
+                child: Text(
+                  "MASTER CARD",
+                  style: TextStyle(
+                    fontFamily: "Kumbhsans",
+                    color: const Color(0xFFFFFFFF),
+                    fontSize: TextResponsive.getResponsiveFontSize(context, 12),
+                    height: 1,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
               ),
-               SizedBox(
+              SizedBox(
                 width: SizeResponsive.get(context, 60),
                 child: Stack(
                   children: [
@@ -58,45 +66,58 @@ class VisaCard extends StatelessWidget {
               )
             ],
           ),
-           SizedBox(height: height>700 ? 30: 10,),
-           Text("Card number", style: TextStyle(
+          SizedBox(
+            height: height > 700 ? 30 : 10,
+          ),
+          Text(
+            "Card number",
+            style: TextStyle(
               fontFamily: "Kumbhsans",
               color: const Color(0x992B275A),
               fontSize: TextResponsive.getResponsiveFontSize(context, 12),
               height: 1,
-              fontWeight: FontWeight.w500
-            )),
-           SizedBox(height: height>700 ? 14: 4,),
-           Text("2329  5551  2100  ****", style: TextStyle(
-              fontFamily: "Kumbhsans",
-              color: const Color(0xFF2B275A),
-              fontSize: TextResponsive.getResponsiveFontSize(context, 20),
-              height: 1,
-              fontWeight: FontWeight.w900
-            )),
-           SizedBox(height: height>700 ? 30: 10,),
-           Row(
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          SizedBox(
+            height: height > 700 ? 14 : 4,
+          ),
+          Text("2329  5551  2100  ****",
+              style: TextStyle(
+                  fontFamily: "Kumbhsans",
+                  color: const Color(0xFF2B275A),
+                  fontSize: TextResponsive.getResponsiveFontSize(context, 20),
+                  height: 1,
+                  fontWeight: FontWeight.w900)),
+          SizedBox(
+            height: height > 700 ? 30 : 10,
+          ),
+          Row(
             children: [
               Expanded(
                 flex: 7,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Current Balance", style: TextStyle(
-                        fontFamily: "Kumbhsans",
-                        color: const Color(0x992B275A),
-                        fontSize: TextResponsive.getResponsiveFontSize(context, 12),
-                        height: 1,
-                        fontWeight: FontWeight.w500
-                      )),
-                    const SizedBox(height: 4,),
-                    Text("Rs. 42,371.42", style: TextStyle(
-                        fontFamily: "Kumbhsans",
-                        color: const Color(0xFF2B275A),
-                        fontSize: TextResponsive.getResponsiveFontSize(context, 22),
-                        height: 1,
-                        fontWeight: FontWeight.w900
-                      )),
+                    Text("Current Balance",
+                        style: TextStyle(
+                            fontFamily: "Kumbhsans",
+                            color: const Color(0x992B275A),
+                            fontSize: TextResponsive.getResponsiveFontSize(
+                                context, 12),
+                            height: 1,
+                            fontWeight: FontWeight.w500)),
+                    const SizedBox(
+                      height: 4,
+                    ),
+                    Text("Rs. 42,371.42",
+                        style: TextStyle(
+                            fontFamily: "Kumbhsans",
+                            color: const Color(0xFF2B275A),
+                            fontSize: TextResponsive.getResponsiveFontSize(
+                                context, 22),
+                            height: 1,
+                            fontWeight: FontWeight.w900)),
                   ],
                 ),
               ),
@@ -105,28 +126,30 @@ class VisaCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Expire", style: TextStyle(
-                        fontFamily: "Kumbhsans",
-                        color: const Color(0x992B275A),
-                        fontSize: TextResponsive.getResponsiveFontSize(context, 12),
-                        height: 1,
-                        fontWeight: FontWeight.w500
-                      )),
-                    const SizedBox(height: 4,),
-                    Text("10/27", style: TextStyle(
-                        fontFamily: "Kumbhsans",
-                        color: const Color(0xFF2B275A),
-                        fontSize: TextResponsive.getResponsiveFontSize(context, 20),
-                        height: 1,
-                        fontWeight: FontWeight.w900
-                      )),
+                    Text("Expire",
+                        style: TextStyle(
+                            fontFamily: "Kumbhsans",
+                            color: const Color(0x992B275A),
+                            fontSize: TextResponsive.getResponsiveFontSize(
+                                context, 12),
+                            height: 1,
+                            fontWeight: FontWeight.w500)),
+                    const SizedBox(
+                      height: 4,
+                    ),
+                    Text("10/27",
+                        style: TextStyle(
+                            fontFamily: "Kumbhsans",
+                            color: const Color(0xFF2B275A),
+                            fontSize: TextResponsive.getResponsiveFontSize(
+                                context, 20),
+                            height: 1,
+                            fontWeight: FontWeight.w900)),
                   ],
                 ),
               )
             ],
           )
-
-
         ],
       ),
     );

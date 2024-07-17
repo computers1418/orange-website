@@ -227,42 +227,41 @@ class _BookingPageState extends State<BookingPage>
               children: [
                 ValueListenableBuilder(
                     valueListenable: showDoctor,
-                    builder: (_, val, __) {
-                      return CustomAppBar2(
-                        widget: Visibility(
-                          visible: val,
-                          child: GestureDetector(
-                            onTap: () => _topSheetController.forward(),
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 10),
-                              child: Image.asset(
-                                'res/images/down_circle.png',
-                                width: 30,
-                                height: 30,
+                    builder: (_, enable, __) {
+                      return ValueListenableBuilder(
+                          valueListenable: showProfile,
+                          builder: (_, val, __) {
+                            return CustomAppBar2(
+                              widget: Visibility(
+                                visible: enable,
+                                child: GestureDetector(
+                                  onTap: () => _topSheetController.forward(),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 10),
+                                    child: Image.asset(
+                                      'res/images/down_circle.png',
+                                      width: 30,
+                                      height: 30,
+                                    ),
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                        ),
-                        closeIcon: val ? Icons.arrow_back : null,
-                        onMenuClick: () {
-                          showDialog(
-                            context: context,
-                            builder: (_) => const DrawerDialog(),
-                          );
-                        },
-                        onClose: () {
-                          if (val) {
-                            closeProfile();
-                          } else {
-                            Navigator.pop(context);
-                          }
-                        },
-                      );
-                      // ValueListenableBuilder(
-                      //     valueListenable: showProfile,
-                      //     builder: (_, val, __) {
-                      //       return Container();
-                      //     });
+                              closeIcon: val ? Icons.arrow_back : null,
+                              onMenuClick: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (_) => const DrawerDialog(),
+                                );
+                              },
+                              onClose: () {
+                                if (val) {
+                                  closeProfile();
+                                } else {
+                                  Navigator.pop(context);
+                                }
+                              },
+                            );
+                          });
                     }),
                 AnimatedBuilder(
                     animation: header,
@@ -399,7 +398,7 @@ class _BookingPageState extends State<BookingPage>
                           child: BookingForm(
                             onSelected: () async {
                               _topSheetController.forward();
-                              Future.delayed(const Duration(seconds: 6), () {
+                              Future.delayed(const Duration(seconds: 10), () {
                                 if (showDoctor.value) {
                                   _topSheetController.reverse();
                                 }

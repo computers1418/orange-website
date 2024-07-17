@@ -59,52 +59,58 @@ class _PaymentPageState extends State<PaymentPage>
         body: Column(
           children: [
             AnimatedBuilder(
-                animation: header,
-                builder: (_, __) {
-                  return Transform.rotate(
-                    angle: -(header.value / 4) * (pi / 180),
-                    child: Transform.translate(
-                      offset: Offset(0, header.value),
-                      child: Stack(
-                        children: [
-                          Container(
-                            margin: const EdgeInsets.only(bottom: 80),
-                            decoration: const BoxDecoration(
-                              color: Color(0xFFFF8412),
-                              borderRadius: BorderRadius.vertical(
-                                bottom: Radius.circular(30),
-                              ),
+              animation: header,
+              builder: (_, __) {
+                return Transform.rotate(
+                  angle: -(header.value / 4) * (pi / 180),
+                  child: Transform.translate(
+                    offset: Offset(0, header.value),
+                    child: Stack(
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(bottom: 80),
+                          decoration: const BoxDecoration(
+                            color: Color(0xFFFF8412),
+                            borderRadius: BorderRadius.vertical(
+                              bottom: Radius.circular(30),
                             ),
-                            child: const PaymentTop(),
                           ),
-                          const Positioned(
-                            bottom: 0,
-                            right: 0,
-                            left: 0,
-                            child: VisaCard(),
-                          )
-                        ],
-                      ),
+                          child: const PaymentTop(),
+                        ),
+                        const Positioned(
+                          bottom: 0,
+                          right: 0,
+                          left: 0,
+                          child: VisaCard(),
+                        )
+                      ],
                     ),
-                  );
-                }),
+                  ),
+                );
+              },
+            ),
             Visibility(
-                visible: height >= 800,
-                child: const SizedBox(
-                  height: 20,
-                )),
+              visible: height >= 800,
+              child: const SizedBox(
+                height: 20,
+              ),
+            ),
             Expanded(
-              child: AnimatedBuilder(
+              child: Container(
+                margin: const EdgeInsets.only(bottom: 20),
+                child: AnimatedBuilder(
                   animation: button,
                   builder: (_, __) {
                     return Transform.translate(
-                      offset: Offset(0, button.value),
+                      offset: Offset(0, button.value + 20),
                       child: Container(
-                        padding: EdgeInsets.only(top: height >= 800 ? 30 : 10),
+                        padding: EdgeInsets.only(top: height >= 800 ? 30 : 30),
                         decoration: const BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage("res/images/wave.png"),
-                                fit: BoxFit.fill)),
+                          image: DecorationImage(
+                            image: AssetImage("res/images/wave.png"),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
                         child: const Column(
                           children: [
                             ProductInfo(),
@@ -118,7 +124,9 @@ class _PaymentPageState extends State<PaymentPage>
                         ),
                       ),
                     );
-                  }),
+                  },
+                ),
+              ),
             ),
           ],
         ),

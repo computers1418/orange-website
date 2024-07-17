@@ -38,7 +38,7 @@ class StyledButton extends StatelessWidget {
           Container(
             padding: const EdgeInsets.only(left: 25, right: 10),
             constraints: const BoxConstraints(
-              maxWidth: 200,
+              maxWidth: 180,
               // maxHeight: 60,
             ),
             height: MediaQuery.of(context).size.height > 700
