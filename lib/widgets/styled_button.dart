@@ -32,8 +32,7 @@ class StyledButton extends StatelessWidget {
             ),
           ),
           Container(
-            // width: 200,
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.only(left: 25, right: 10),
             constraints: const BoxConstraints(
               maxWidth: 250,
             ),
@@ -61,7 +60,7 @@ class StyledButton extends StatelessWidget {
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-                const SizedBox(width: 10),
+                const SizedBox(width: 5),
                 ImageIcon(
                   const AssetImage("res/icons/star.png"),
                   size: 11,

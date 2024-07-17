@@ -10,33 +10,44 @@ class ProfileHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: SizeResponsive.getHeightverse(context, 25), vertical: SizeResponsive.getHeightverse(context, 6)),
+      padding: EdgeInsets.only(
+        left: SizeResponsive.getHeightverse(context, 30),
+        right: SizeResponsive.getHeightverse(context, 25),
+        top: SizeResponsive.getHeightverse(context, 6),
+        bottom: SizeResponsive.getHeightverse(context, 6),
+      ),
       child: Row(
         children: [
-      
           CircleAvatar(
             radius: SizeResponsive.get(context, 32),
             backgroundImage: const AssetImage("res/images/profile.png"),
           ),
           8.hgap(),
-          Expanded(child: Column(
+          Expanded(
+              child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              "Dr. Diana Cruz".extraBold(fontSize: TextResponsive.getResponsiveFontSize(context, 20)),
+              "Dr. Diana Cruz".extraBold(
+                  fontSize: TextResponsive.getResponsiveFontSize(context, 20)),
               6.hgap(),
-              "BDS, MDS".medium(fontSize: TextResponsive.getResponsiveFontSize(context, 12))
+              "BDS, MDS".medium(
+                  fontSize: TextResponsive.getResponsiveFontSize(context, 12))
             ],
           )),
           Column(
             children: [
               CircleAvatar(
                 radius: SizeResponsive.get(context, 16),
-                child: ImageIcon(const AssetImage("res/icons/heart.png"), size: SizeResponsive.getHeightverse(context, 18), color: const Color(0x99FF8412)),
+                child: ImageIcon(const AssetImage("res/icons/heart.png"),
+                    size: SizeResponsive.getHeightverse(context, 18),
+                    color: const Color(0x99FF8412)),
               ),
               SizeResponsive.get(context, 14).toInt().vgap(),
               CircleAvatar(
                 radius: SizeResponsive.get(context, 16),
-                child: ImageIcon(const AssetImage("res/icons/phone.png"), size: SizeResponsive.getHeightverse(context, 18), color: const Color(0xFFFF8412)),
+                child: ImageIcon(const AssetImage("res/icons/phone.png"),
+                    size: SizeResponsive.getHeightverse(context, 18),
+                    color: const Color(0xFFFF8412)),
               )
             ],
           )

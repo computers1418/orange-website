@@ -14,7 +14,7 @@ class ProfileTab extends StatelessWidget {
 
   String get aboutUsText =>
       "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. consectetur adipiscing elit. Nunc vulputate libero et velit interdum Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. consectetur adipi"
-          .substring(0, 300);
+          .substring(0, 280);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,11 @@ class ProfileTab extends StatelessWidget {
     return DefaultTabController(
       length: 3,
       child: Padding(
-        padding: EdgeInsets.only(left: 28, top: height > 800 ? 20 : 0),
+        padding: EdgeInsets.only(
+          left: 28,
+          top: height > 800 ? 20 : 0,
+          right: 16,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
@@ -37,12 +41,13 @@ class ProfileTab extends StatelessWidget {
                 isScrollable: true,
                 indicatorPadding: EdgeInsets.zero,
                 labelStyle: TextStyle(
-                    color: const Color(0xFF2B275A),
-                    fontSize: height > 700
-                        ? 16
-                        : TextResponsive.getResponsiveFontSize(context, 18),
-                    fontFamily: "Kumbhsans",
-                    fontWeight: FontWeight.w700),
+                  color: const Color(0xFF2B275A),
+                  fontSize: height > 700
+                      ? 16
+                      : TextResponsive.getResponsiveFontSize(context, 18),
+                  fontFamily: "Kumbhsans",
+                  fontWeight: FontWeight.w700,
+                ),
                 indicatorSize: TabBarIndicatorSize.tab,
                 // indicatorColor: Color(0xFFFF8412),
 
@@ -73,7 +78,11 @@ class ProfileTab extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                padding: const EdgeInsets.only(left: 16, top: 6),
+                padding: const EdgeInsets.only(
+                  left: 12,
+                  top: 6,
+                  right: 16,
+                ),
                 child: TabBarView(
                   physics: const NeverScrollableScrollPhysics(),
                   children: [
@@ -87,6 +96,7 @@ class ProfileTab extends StatelessWidget {
                                 context,
                                 12,
                               ),
+                              fontFamily: "Kumbhsans",
                               color: const Color(0x802B275A),
                             ),
                             children: [
@@ -99,6 +109,7 @@ class ProfileTab extends StatelessWidget {
                                     context,
                                     12,
                                   ),
+                                  fontFamily: "Kumbhsans",
                                   fontWeight: FontWeight.w700,
                                 ),
                                 recognizer: TapGestureRecognizer()
