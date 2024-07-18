@@ -4,7 +4,6 @@ import 'package:dentist_india_plus/extensions/num_exten.dart';
 import 'package:dentist_india_plus/extensions/text_exten.dart';
 import 'package:dentist_india_plus/responsive/size_responsive.dart';
 import 'package:dentist_india_plus/widgets/bottomsheet_close.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../responsive/text_responsive.dart';
@@ -100,27 +99,57 @@ class ProfileTab extends StatelessWidget {
                               color: const Color(0x802B275A),
                             ),
                             children: [
-                              TextSpan(
-                                text: " more...",
-                                style: TextStyle(
-                                  color: const Color(0xFF2B275A),
-                                  fontSize:
-                                      TextResponsive.getResponsiveFontSize(
-                                    context,
-                                    12,
-                                  ),
-                                  fontFamily: "Kumbhsans",
-                                  fontWeight: FontWeight.w700,
-                                ),
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = () {
+                              WidgetSpan(
+                                child: InkWell(
+                                  onTap: () {
                                     showDialog(
                                       context: context,
                                       builder: (_) =>
                                           const AboutOverLayDialog(),
                                     );
                                   },
-                              )
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      // vertical: 1,
+                                      horizontal: 4,
+                                    ),
+                                    child: Text(
+                                      "more...",
+                                      style: TextStyle(
+                                        color: const Color(0xFF2B275A),
+                                        fontSize: TextResponsive
+                                            .getResponsiveFontSize(
+                                          context,
+                                          12,
+                                        ),
+                                        fontFamily: "Kumbhsans",
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              // TextSpan(
+                              //   text: " more...",
+                              //   style: TextStyle(
+                              //     color: const Color(0xFF2B275A),
+                              //     fontSize:
+                              //         TextResponsive.getResponsiveFontSize(
+                              //       context,
+                              //       12,
+                              //     ),
+                              //     fontFamily: "Kumbhsans",
+                              //     fontWeight: FontWeight.w700,
+                              //   ),
+                              //   recognizer: TapGestureRecognizer()
+                              //     ..onTap = () {
+                              //       showDialog(
+                              //         context: context,
+                              //         builder: (_) =>
+                              //             const AboutOverLayDialog(),
+                              //       );
+                              //     },
+                              // )
                             ],
                           ),
                           overflow: TextOverflow.ellipsis,
