@@ -22,14 +22,16 @@ class App extends StatelessWidget {
         return LayoutBuilder(
           builder: (context, constraints) {
             // Determine if the view is a desktop view based on width
-            bool isDesktop = constraints.maxWidth >= 800; // Example width threshold
+            bool isDesktop =
+                constraints.maxWidth >= 800; // Example width threshold
 
             return MediaQuery(
               data: MediaQuery.of(context).copyWith(
                 textScaler: const TextScaler.linear(1.0),
               ),
               child: Scaffold(
-                body: isDesktop ? const DesktopContent() : child!,
+                body: child!,
+                // body: isDesktop ? const DesktopContent() : child!,
               ),
             );
           },
@@ -48,18 +50,24 @@ class DesktopContent extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-           Text(
-              'Desktop view is not available.',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, fontFamily: 'Kumbhsans',),
-              textAlign: TextAlign.center,
-              
+          Text(
+            'Desktop view is not available.',
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Kumbhsans',
             ),
-            SizedBox(height: 8),
-            Text(
-              'Please switch to a mobile view to continue.',
-              style: TextStyle(fontSize: 18, fontFamily: 'Kumbhsans',),
-              textAlign: TextAlign.center,
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 8),
+          Text(
+            'Please switch to a mobile view to continue.',
+            style: TextStyle(
+              fontSize: 18,
+              fontFamily: 'Kumbhsans',
             ),
+            textAlign: TextAlign.center,
+          ),
         ],
       ),
     );
