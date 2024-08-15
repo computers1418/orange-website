@@ -30,8 +30,8 @@ class App extends StatelessWidget {
                 textScaler: const TextScaler.linear(1.0),
               ),
               child: Scaffold(
-                body: child!,
-                // body: isDesktop ? const DesktopContent() : child!,
+                // body: child!,
+                body: isDesktop ? const DesktopContent() : child!,
               ),
             );
           },
