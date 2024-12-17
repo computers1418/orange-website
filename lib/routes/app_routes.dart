@@ -1,8 +1,10 @@
 import 'package:dentist_india_plus/booking_page.dart';
 import 'package:dentist_india_plus/home_page.dart';
 import 'package:dentist_india_plus/pages/about/about_view.dart';
+import 'package:dentist_india_plus/pages/cashback/cashback_banner.dart';
 import 'package:dentist_india_plus/pages/contact/contact_view.dart';
 import 'package:dentist_india_plus/pages/privacy/privacy_policy_view.dart';
+import 'package:dentist_india_plus/pages/quick_booking/quick_booking.dart';
 import 'package:dentist_india_plus/pages/refund/refund_policy_view.dart';
 import 'package:dentist_india_plus/pages/terms/terms_view.dart';
 import 'package:dentist_india_plus/payment_page.dart';
@@ -22,6 +24,8 @@ class Routes {
   static const String terms = '/terms';
   static const String privacy = '/privacy-policy';
   static const String refund = '/refund-policy';
+  static const String quickBooking = '/quickBooking';
+  static const String cashbackBanner = '/cashbackBanner';
 }
 
 class RouteGenerator {
@@ -69,6 +73,16 @@ class RouteGenerator {
     GetPage(
       name: '/payment',
       page: () => const PaymentPage(),
+      transition: nav.Transition.noTransition,
+    ),
+    GetPage(
+      name: '/quickBooking',
+      page: () => const QuickBooking(),
+      transition: nav.Transition.noTransition,
+    ),
+    GetPage(
+      name: '/cashbackBanner',
+      page: () => const CashbackBanner(),
       transition: nav.Transition.noTransition,
     ),
   ];

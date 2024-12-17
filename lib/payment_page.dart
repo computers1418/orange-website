@@ -5,6 +5,7 @@ import 'package:dentist_india_plus/widgets/payment_top.dart';
 import 'package:dentist_india_plus/widgets/product_info.dart';
 import 'package:dentist_india_plus/widgets/visa_card.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'widgets/doctor_pay.dart';
 
@@ -20,6 +21,7 @@ class _PaymentPageState extends State<PaymentPage>
   late Animation<double> header;
   late Animation<double> button;
   late AnimationController _controller;
+  dynamic data = Get.arguments;
 
   @override
   void initState() {
@@ -111,15 +113,19 @@ class _PaymentPageState extends State<PaymentPage>
                             fit: BoxFit.fill,
                           ),
                         ),
-                        child: const Column(
+                        child: Column(
                           children: [
-                            ProductInfo(),
+                            ProductInfo(
+                              data: data,
+                            ),
                             Expanded(
                                 child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [BillingInfo()],
                             )),
-                            DoctorPay()
+                            DoctorPay(
+                              data: data,
+                            )
                           ],
                         ),
                       ),

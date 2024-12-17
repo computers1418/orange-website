@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
 
 import '../home_page.dart';
@@ -9,34 +10,39 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Dentist India Plus',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xffff8412)),
-        useMaterial3: true,
-      ),
-      debugShowCheckedModeBanner: false,
-      home: const HomePage(),
-      getPages: RouteGenerator.pages,
-      builder: (context, child) {
-        return LayoutBuilder(
-          builder: (context, constraints) {
-            // Determine if the view is a desktop view based on width
-            bool isDesktop =
-                constraints.maxWidth >= 800; // Example width threshold
+    return ScreenUtilInit(
+      designSize: const Size(430, 764),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      child: GetMaterialApp(
+        title: 'Dentist India Plus',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xffff8412)),
+          useMaterial3: true,
+        ),
+        debugShowCheckedModeBanner: false,
+        home: const HomePage(),
+        getPages: RouteGenerator.pages,
+        builder: (context, child) {
+          return LayoutBuilder(
+            builder: (context, constraints) {
+              // Determine if the view is a desktop view based on width
+              bool isDesktop =
+                  constraints.maxWidth >= 800; // Example width threshold
 
-            return MediaQuery(
-              data: MediaQuery.of(context).copyWith(
-                textScaler: const TextScaler.linear(1.0),
-              ),
-              child: Scaffold(
-                // body: child!,
-                body: isDesktop ? const DesktopContent() : child!,
-              ),
-            );
-          },
-        );
-      },
+              return MediaQuery(
+                data: MediaQuery.of(context).copyWith(
+                  textScaler: const TextScaler.linear(1.0),
+                ),
+                child: Scaffold(
+                  // body: child!,
+                  body: isDesktop ? const DesktopContent() : child!,
+                ),
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }

@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 
 import '../responsive/size_responsive.dart';
 import '../responsive/text_responsive.dart';
+import 'bottomsheet_city.dart';
 
 class CustomAppBar2 extends StatelessWidget {
   final IconData? closeIcon;
   final VoidCallback onClose;
   final VoidCallback onMenuClick;
   final Widget? widget;
+
   const CustomAppBar2({
     super.key,
     this.closeIcon,
@@ -65,44 +67,56 @@ class CustomAppBar2 extends StatelessWidget {
           Row(
             children: [
               widget ?? const SizedBox.shrink(),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Location",
-                    style: TextStyle(
-                      fontFamily: "Kumbhsans",
-                      color: const Color(0xFFFFFFFF),
-                      fontSize:
-                          TextResponsive.getResponsiveFontSize(context, 6),
-                      height: 1,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  // const SizedBox(
-                  //   height: 4,
-                  // ),
-                  Row(
-                    children: [
-                      Text(
-                        "DL",
-                        style: TextStyle(
-                          fontFamily: "KumbhsansSemiBold",
-                          color: const Color(0xFFFFFFFF),
-                          fontSize:
-                              TextResponsive.getResponsiveFontSize(context, 12),
-                          height: 1,
-                          fontWeight: FontWeight.w800,
-                        ),
+              GestureDetector(
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return BottomsheetCity(
+                        onSelect: () {},
+                      );
+                    },
+                  );
+                },
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Location",
+                      style: TextStyle(
+                        fontFamily: "Kumbhsans",
+                        color: const Color(0xFFFFFFFF),
+                        fontSize:
+                            TextResponsive.getResponsiveFontSize(context, 6),
+                        height: 1,
+                        fontWeight: FontWeight.w500,
                       ),
-                      const Icon(
-                        Icons.arrow_drop_down,
-                        color: Colors.white,
-                        size: 14,
-                      )
-                    ],
-                  )
-                ],
+                    ),
+                    // const SizedBox(
+                    //   height: 4,
+                    // ),
+                    Row(
+                      children: [
+                        Text(
+                          "DL",
+                          style: TextStyle(
+                            fontFamily: "KumbhsansSemiBold",
+                            color: const Color(0xFFFFFFFF),
+                            fontSize: TextResponsive.getResponsiveFontSize(
+                                context, 12),
+                            height: 1,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                        const Icon(
+                          Icons.arrow_drop_down,
+                          color: Colors.white,
+                          size: 14,
+                        )
+                      ],
+                    )
+                  ],
+                ),
               ),
               const SizedBox(
                 width: 8,

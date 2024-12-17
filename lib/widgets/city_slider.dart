@@ -1,45 +1,61 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dentist_india_plus/controller/city_controller.dart';
 import 'package:dentist_india_plus/data.dart';
 import 'package:dentist_india_plus/widgets/city_item.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../responsive/size_responsive.dart';
 
-class CitySlider extends StatelessWidget {
+class CitySlider extends StatefulWidget {
   final VoidCallback onSelect;
-  final String selectedCity;
-  final VoidCallback onForward;
-  final VoidCallback onBack;
   final ValueChanged onChanged;
-  final CarouselController controller;
-  const CitySlider({super.key, required this.onSelect, required this.selectedCity, required this.onForward, required this.onBack, required this.onChanged, required this.controller});
+  final CarouselSliderController controller;
+
+  const CitySlider(
+      {super.key,
+      required this.onSelect,
+      required this.onChanged,
+      required this.controller});
+
+  @override
+  State<CitySlider> createState() => _CitySliderState();
+}
+
+class _CitySliderState extends State<CitySlider> {
+  CityController cityController = Get.put(CityController());
 
   @override
   Widget build(BuildContext context) {
-
-    return Stack(
-      children: [
-        SizedBox(
-          height: SizeResponsive.get(context, 185),
-          width: double.infinity,
-          child: CarouselSlider.builder(
-            itemCount: cityItems.length,
-            carouselController: controller,
-            options: CarouselOptions(
-              enlargeCenterPage: true,
-              enlargeFactor: 0.3,
-              onPageChanged: (_, __){
-                onChanged(_);
-              }
+    return GetBuilder<CityController>(
+      init: CityController(),
+      builder: (cityController) => Stack(
+        children: [
+          SizedBox(
+            height: SizeResponsive.get(context, 185),
+            width: double.infinity,
+            child: CarouselSlider.builder(
+              itemCount: cityController.cities.length,
+              carouselController: widget.controller,
+              options: CarouselOptions(
+                  enlargeCenterPage: true,
+                  enlargeFactor: 0.3,
+                  onPageChanged: (_, __) {
+                    widget.onChanged(_);
+                  }),
+              itemBuilder:
+                  (BuildContext context, int itemIndex, int pageViewIndex) =>
+                      CityItem(
+                item: cityController.cities[itemIndex],
+                onSelect: () {
+                  cityController.changeCity(cityController.cities[itemIndex]);
+                  Navigator.pop(context);
+                },
+              ),
             ),
-            itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
-              CityItem(item: cityItems[itemIndex], onSelect: onSelect),
           ),
-          
-        ),
-
-    
-      ],
+        ],
+      ),
     );
 
     // return SizedBox(
@@ -129,7 +145,7 @@ class CitySlider extends StatelessWidget {
     //           ],
     //         ),
     //       ),
-      
+
     //       Align(
     //         alignment: Alignment.centerLeft,
     //         child: GestureDetector(
@@ -143,7 +159,7 @@ class CitySlider extends StatelessWidget {
     //           ),
     //         ),
     //       ),
-      
+
     //       Align(
     //         alignment: Alignment.centerRight,
     //         child: GestureDetector(

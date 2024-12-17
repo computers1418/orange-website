@@ -1,11 +1,14 @@
 import 'dart:math';
+import 'package:dentist_india_plus/controller/doctor_controller.dart';
 import 'package:dentist_india_plus/data.dart';
 import 'package:dentist_india_plus/extensions/num_exten.dart';
 import 'package:dentist_india_plus/utils.dart';
 import 'package:dentist_india_plus/widgets/booking_form.dart';
 import 'package:dentist_india_plus/widgets/doctor_instruction_card.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
+import 'controller/treatment_controller.dart';
 import 'drawer/drawer_dialog.dart';
 import 'drawer/home_drawer.dart';
 import 'responsive/size_responsive.dart';
@@ -41,7 +44,9 @@ class _BookingPageState extends State<BookingPage>
   late TextEditingController dateTime;
   late TextEditingController name;
   late TextEditingController problem;
+  late TextEditingController test;
   late TextEditingController medicine;
+  late TextEditingController surgery;
 
   final PageController controller =
       PageController(viewportFraction: 0.8, initialPage: 0);
@@ -63,6 +68,8 @@ class _BookingPageState extends State<BookingPage>
   late Animation<double> side1;
   late Animation<double> side2;
   late Animation<double> side3;
+  DoctorController doctorController = Get.put(DoctorController());
+  TreatmentController treatmentController = Get.put(TreatmentController());
 
   @override
   void initState() {
@@ -75,7 +82,9 @@ class _BookingPageState extends State<BookingPage>
     dateTime = TextEditingController();
     name = TextEditingController();
     problem = TextEditingController();
+    test = TextEditingController();
     medicine = TextEditingController();
+    surgery = TextEditingController();
 
     // BOOKING PAGE
 
@@ -342,35 +351,6 @@ class _BookingPageState extends State<BookingPage>
                               );
                             },
                           ),
-                          // Positioned(
-                          //   bottom: 0,
-                          //   right: 0,
-                          //   left: 0,
-                          //   child: Row(
-                          //     mainAxisAlignment: MainAxisAlignment.center,
-                          //     children: [
-                          //       Text(
-                          //         "Read Client Reviews",
-                          //         style: TextStyle(
-                          //           color: Colors.white,
-                          //           fontWeight: FontWeight.w700,
-                          //           fontSize:
-                          //               TextResponsive.getResponsiveFontSize(
-                          //                   context, 10),
-                          //           fontFamily: "Kumbhsans",
-                          //         ),
-                          //       ),
-                          //       const SizedBox(
-                          //         width: 4,
-                          //       ),
-                          //       Icon(
-                          //         Icons.arrow_forward,
-                          //         size: SizeResponsive.get(context, 10),
-                          //         color: Colors.white,
-                          //       )
-                          //     ],
-                          //   ),
-                          // ),
                         ],
                       );
                     },
@@ -406,12 +386,16 @@ class _BookingPageState extends State<BookingPage>
                             },
                             dateTime: dateTime,
                             problem: problem,
+                            test: test,
+                            medicine: medicine,
+                            surgery: surgery,
                             doctor: doctor,
                             bottomSheetController: _bottomSheetController,
                             sheet: sheet.value,
                             showDoctor: showDoctor,
                             selectedDoctor: selectedDoctor,
                             openProfile: openProfile,
+                            doctorController: doctorController,
                           ),
                         );
                       },
@@ -493,39 +477,66 @@ class _BookingPageState extends State<BookingPage>
                               ),
                               16.hgap(),
                               Expanded(
-                                child: ValueListenableBuilder(
-                                    valueListenable: isSelectClicked,
-                                    builder: (context, val, child) {
-                                      return GestureDetector(
-                                        onTap: () {
-                                          isSelectClicked.value = true;
-                                          _slidercontroller.reverse();
-                                          Future.delayed(
-                                            const Duration(milliseconds: 1300),
-                                            () {
-                                              controller.animateToPage(1,
-                                                  duration: const Duration(
-                                                      milliseconds: 400),
-                                                  curve: Curves.linear);
-                                              isSelectClicked.value = false;
-                                            },
-                                          );
-                                          _controller.forward();
-                                          selectedDoctor.value = doctors.first;
-                                          doctor.setText(
-                                            selectedDoctor.value!['name'],
-                                          );
-                                          showProfile.value = false;
-                                        },
-                                        child: StyledButton(
-                                          text: "SELECT",
-                                          secondary: isSelectClicked.value,
-                                          // MediaQuery.of(context).size.height > 700
-                                          //     ? false
-                                          //     : true,
-                                        ),
-                                      );
-                                    }),
+                                child: GetBuilder<DoctorController>(
+                                  builder: (getcontroller) =>
+                                      ValueListenableBuilder(
+                                          valueListenable: isSelectClicked,
+                                          builder: (context, val, child) {
+                                            return GestureDetector(
+                                              onTap: () {
+                                                isSelectClicked.value = true;
+                                                _slidercontroller.reverse();
+                                                Future.delayed(
+                                                  const Duration(
+                                                      milliseconds: 1300),
+                                                  () {
+                                                    controller.animateToPage(1,
+                                                        duration:
+                                                            const Duration(
+                                                                milliseconds:
+                                                                    400),
+                                                        curve: Curves.linear);
+                                                    isSelectClicked.value =
+                                                        false;
+                                                  },
+                                                );
+                                                _controller.forward();
+                                                selectedDoctor.value =
+                                                    doctors.first;
+                                                doctorController.changeDoctor(
+                                                    getcontroller
+                                                        .doctorProfile!);
+                                                treatmentController
+                                                    .getTreatmentModesByDoctorId(
+                                                        context,
+                                                        getcontroller
+                                                                    .selectDoctor ==
+                                                                null
+                                                            ? ""
+                                                            : getcontroller
+                                                                .selectDoctor!
+                                                                .id);
+                                                doctor.setText(getcontroller
+                                                    .selectDoctor!
+                                                    .personalInfo
+                                                    .name);
+                                                // doctor.setText(
+                                                //   selectedDoctor.value!['name'],
+                                                // );
+                                                showProfile.value = false;
+                                              },
+                                              child: StyledButton(
+                                                text: "SELECT",
+                                                secondary:
+                                                    isSelectClicked.value,
+                                                // MediaQuery.of(context).size.height > 700
+                                                //     ? false
+                                                //     : true,
+                                              ),
+                                            );
+                                          }),
+                                  init: DoctorController(),
+                                ),
                               )
                             ],
                           ),

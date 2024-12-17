@@ -1,39 +1,44 @@
+import 'package:dentist_india_plus/controller/doctor_controller.dart';
+import 'package:dentist_india_plus/controller/treatment_controller.dart';
 import 'package:dentist_india_plus/responsive/size_responsive.dart';
 import 'package:dentist_india_plus/responsive/text_responsive.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class AppointmentType extends StatelessWidget {
-  const AppointmentType({super.key});
+class AppointmentType extends StatefulWidget {
+  AppointmentType({super.key});
+
+  @override
+  State<AppointmentType> createState() => _AppointmentTypeState();
+}
+
+class _AppointmentTypeState extends State<AppointmentType> {
+  TreatmentController treatmentController = Get.put(TreatmentController());
 
   @override
   Widget build(BuildContext context) {
-    var items = [
-      {'label': 'Visit Clinic', 'id': 1},
-      {'label': 'Video Call', 'id': 2},
-      {'label': 'Voice Call', 'id': 3},
-    ];
-
-    ValueNotifier notifier = ValueNotifier(1);
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40),
-      child: ValueListenableBuilder(
-          valueListenable: notifier,
-          builder: (_, val, __) {
-            return Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: items
+    return GetBuilder<TreatmentController>(
+      init: TreatmentController(),
+      builder: (controller) => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 40),
+        child: controller.treatmentModeList.isEmpty
+            ? SizedBox()
+            : Row(
+                mainAxisAlignment: controller.treatmentModeList.length == 1
+                    ? MainAxisAlignment.center
+                    : MainAxisAlignment.spaceBetween,
+                children: controller.treatmentModeList
                     .map((e) => GestureDetector(
-                          onTap: () => notifier.value = e['id'],
+                          onTap: () => treatmentController.onChangeTreatment(e),
                           child: Container(
                             decoration: BoxDecoration(
-                                color: val == e['id']
+                                color: controller.treatment == e
                                     ? const Color(0xFFFF8412)
                                     : Colors.white,
                                 borderRadius:
                                     const BorderRadius.all(Radius.circular(30)),
                                 border: Border.all(
-                                    color: val == e['id']
+                                    color: controller.treatment == e
                                         ? Colors.white
                                         : const Color(0xFFFF8412),
                                     width: 3)),
@@ -41,9 +46,9 @@ class AppointmentType extends StatelessWidget {
                             padding: EdgeInsets.symmetric(
                                 vertical: SizeResponsive.get(context, 8),
                                 horizontal: 10),
-                            child: Text('${e['label']}',
+                            child: Text('${e}',
                                 style: TextStyle(
-                                    color: val == e['id']
+                                    color: controller.treatment == e
                                         ? Colors.white
                                         : const Color(0xFFFF8412),
                                     fontWeight: FontWeight.w700,
@@ -53,8 +58,8 @@ class AppointmentType extends StatelessWidget {
                                     fontFamily: "Kumbhsans")),
                           ),
                         ))
-                    .toList());
-          }),
+                    .toList()),
+      ),
     );
   }
 }

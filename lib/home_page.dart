@@ -344,7 +344,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             // setState(() {
                             //   showForm = true;
                             // });
-                            await Get.toNamed(Routes.booking);
+                            await Get.toNamed(Routes.quickBooking);
+                            // await Get.toNamed(Routes.booking);
+                            // await Get.toNamed(Routes.cashbackBanner);
                             // showModalBottomSheet(
                             //   isScrollControlled: true,
                             //   backgroundColor: Colors.transparent,

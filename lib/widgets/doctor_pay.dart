@@ -1,3 +1,4 @@
+import 'package:dentist_india_plus/model/doctor_model.dart';
 import 'package:dentist_india_plus/responsive/size_responsive.dart';
 import 'package:dentist_india_plus/responsive/text_responsive.dart';
 import 'package:dentist_india_plus/routes/app_routes.dart';
@@ -7,8 +8,18 @@ import 'confirmed_dialog.dart';
 import 'number_dialog.dart';
 import 'otp_dialog.dart';
 
-class DoctorPay extends StatelessWidget {
-  const DoctorPay({super.key});
+class DoctorPay extends StatefulWidget {
+  dynamic data;
+
+  DoctorPay({super.key, this.data});
+
+  @override
+  State<DoctorPay> createState() => _DoctorPayState();
+}
+
+class _DoctorPayState extends State<DoctorPay> {
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController otpController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +41,12 @@ class DoctorPay extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Dr. Veronica Smith",
+                Text(
+                    widget.data[1]["doctor"] == null
+                        ? "-"
+                        : (widget.data[1]["doctor"] as DoctorModel)
+                            .personalInfo
+                            .name,
                     maxLines: 1,
                     style: TextStyle(
                         fontFamily: "Kumbhsans",
@@ -101,7 +117,13 @@ class DoctorPay extends StatelessWidget {
                           // :
                           // val == 1
                           ? NumberDialog(
-                              onSubmit: () => dialogNotifier.value = 1,
+                              onSubmit: () {
+                                dialogNotifier.value = 1;
+                              },
+                              data: widget.data,
+                              change: (value) {
+                                phoneController.text = value;
+                              },
                             )
                           // : val == 1
                           //     ? MailDialog(
@@ -109,11 +131,18 @@ class DoctorPay extends StatelessWidget {
                           //       )
                           : val == 1
                               ? OtpDialog(
-                                  onSubmit: () => dialogNotifier.value = 3)
+                                  onSubmit: () {
+                                    dialogNotifier.value = 3;
+                                  },
+                                  change: (value) {
+                                    otpController.text = value;
+                                  },
+                                )
                               : ConfirmedDialog(
                                   onSubmit: () {
                                     Get.offAndToNamed(Routes.splash);
                                   },
+                                  data: widget.data,
                                 );
                     },
                   );

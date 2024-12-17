@@ -7,14 +7,13 @@ import 'package:get/get.dart';
 
 class DoctorItem extends StatelessWidget {
   final String name;
-  final String designation;
   final String location;
   final VoidCallback onClick;
   final VoidCallback onView;
+
   const DoctorItem({
     super.key,
     required this.name,
-    required this.designation,
     required this.location,
     required this.onClick,
     required this.onView,
@@ -58,7 +57,7 @@ class DoctorItem extends StatelessWidget {
                         width: 2,
                       ),
                       Text(
-                        "$location, New Delhi.",
+                        "$location",
                         style: TextStyle(
                           fontFamily: "Kumbhsans",
                           color: const Color(0xFFFF8412),

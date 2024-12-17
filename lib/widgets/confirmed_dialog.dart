@@ -4,7 +4,9 @@ import 'dialog_wrapper.dart';
 
 class ConfirmedDialog extends StatelessWidget {
   final VoidCallback onSubmit;
-  const ConfirmedDialog({super.key, required this.onSubmit});
+  final dynamic data;
+
+  ConfirmedDialog({super.key, required this.onSubmit, this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -16,40 +18,49 @@ class ConfirmedDialog extends StatelessWidget {
       showStar: true,
       sub: "Hey! John, Your appointment is confirmed with Dr. Diana Cruz ",
       child1: Padding(
-        padding: const EdgeInsets.only(bottom: 20),
-        child: Image.asset("res/images/people.png", height: 150)
-      ), 
-      child2: const Padding(
+          padding: const EdgeInsets.only(bottom: 20),
+          child: Image.asset("res/images/people.png", height: 150)),
+      child2: Padding(
         padding: EdgeInsets.only(left: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-          Text("21 Feb @ 11:00 am", style: TextStyle(
-            fontFamily: "KumbhsansSemiBold",
-            color: Color(0xFF2B275A),
-            fontSize: 14,
-            fontWeight: FontWeight.w800
-          )),
-          Text("Dental Braces", style: TextStyle(
-            fontFamily: "Kumbhsans",
-            color: Color(0xFFFF8412),
-            fontSize: 9,
-            fontWeight: FontWeight.w500
-          )),
-          Row(
-            children: [
-              ImageIcon(AssetImage("res/icons/icon_loc.png"), size: 8, color: Color(0xFFFF8412),),
-              SizedBox(width: 2,),
-              Expanded(
-                child: Text("12/2, Mathura Road, Sector 37, Faridabad - Delhi", style: TextStyle(
-                  fontFamily: "Kumbhsans",
-                  color: Color(0xFF2B275A),
-                  fontSize: 9,
-                  fontWeight: FontWeight.w700
-                )),
-              )
-            ],
-          )
+            Text(
+                data[2]["dateTime"].toString().isEmpty
+                    ? "-"
+                    : data[2]["dateTime"],
+                style: TextStyle(
+                    fontFamily: "KumbhsansSemiBold",
+                    color: Color(0xFF2B275A),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w800)),
+            Text("Dental Braces",
+                style: TextStyle(
+                    fontFamily: "Kumbhsans",
+                    color: Color(0xFFFF8412),
+                    fontSize: 9,
+                    fontWeight: FontWeight.w500)),
+            Row(
+              children: [
+                ImageIcon(
+                  AssetImage("res/icons/icon_loc.png"),
+                  size: 8,
+                  color: Color(0xFFFF8412),
+                ),
+                SizedBox(
+                  width: 2,
+                ),
+                Expanded(
+                  child: Text(
+                      "12/2, Mathura Road, Sector 37, Faridabad - Delhi",
+                      style: TextStyle(
+                          fontFamily: "Kumbhsans",
+                          color: Color(0xFF2B275A),
+                          fontSize: 9,
+                          fontWeight: FontWeight.w700)),
+                )
+              ],
+            )
           ],
         ),
       ),

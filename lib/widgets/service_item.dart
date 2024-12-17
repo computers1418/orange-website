@@ -2,18 +2,17 @@ import 'package:dentist_india_plus/responsive/size_responsive.dart';
 import 'package:dentist_india_plus/responsive/text_responsive.dart';
 import 'package:flutter/material.dart';
 
+import '../model/set_problem_model.dart';
+
 class ServiceItem extends StatelessWidget {
-  final String icon;
-  final String service;
-  final String? amount;
+  final SetProblemModel model;
   final bool selected;
   final VoidCallback onClick;
+
   const ServiceItem(
       {super.key,
+      required this.model,
       required this.onClick,
-      required this.icon,
-      required this.service,
-      this.amount,
       this.selected = false});
 
   @override
@@ -32,7 +31,7 @@ class ServiceItem extends StatelessWidget {
               radius: SizeResponsive.get(context, 20),
               backgroundColor: Color(selected ? 0x33FFFFFF : 0xFFE5F1FA),
               child: ImageIcon(
-                AssetImage(icon),
+                AssetImage("res/icons/icon1.png"),
                 size: SizeResponsive.get(context, 20),
                 color: selected
                     ? const Color(0xFFFFFFFF)
@@ -43,7 +42,7 @@ class ServiceItem extends StatelessWidget {
               width: 12,
             ),
             Expanded(
-              child: Text(service,
+              child: Text(model.problemName,
                   style: TextStyle(
                       fontFamily: "Kumbhsans",
                       color: Color(!selected ? 0xFF2B275A : 0xFFFFFFFF),
@@ -53,8 +52,8 @@ class ServiceItem extends StatelessWidget {
                       fontWeight: FontWeight.w700)),
             ),
             Visibility(
-              visible: amount != null,
-              child: Text(amount ?? '',
+              visible: model.price.isNotEmpty,
+              child: Text("Rs. ${model.price}",
                   style: TextStyle(
                       fontFamily: "KumbhsansSemiBold",
                       color: Color(!selected ? 0xFFFF8412 : 0xFFFFFFFF),
